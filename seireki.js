@@ -1,6 +1,6 @@
 // 西暦年から昭和年を求める
 //process.stdin.resume();
-//process.stdin.setEncoding('utf8');
+process.stdin.setEncoding('utf8');
 
 var seireki = parseInt(Math.random() * 60) + 1970;
 //var seireki = 1910;
