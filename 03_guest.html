@@ -1,0 +1,55 @@
+<!--Htmlを実装
+    VSCodeの拡張機能「HTML PREVIEW」をインストールて、
+    HTMLファイルを開いた状態で以下操作にて表示。
+    Mac：Cmd + K → V
+　　Windows：Ctrl + K → V
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>HOST画面</title>
+    <style>
+    body{
+        color: white;
+        font-size: 120%;
+        background-color: #92DB5E;
+    }
+        </style>
+</head>
+
+<body>
+     <img class="back_btn" 
+     src="items/02_HOST-assets/back.png">
+
+     <!--ユーザー名入力フォーム
+-->
+     <h1>ユーザー名を入力してください</h1>
+     <p>※最大10文字</p>
+     <form action="#" method="POST">
+     <input type="text" name="userName" maxlength="10" size="20">
+     </form>
+
+     <!--ルームID入力フォーム
+-->
+     <h1>ルームIDを入力してください</h1>
+
+     <form action="#" method="GET">
+     <input type="text" name="roomId" maxlength="10" size="20">
+     <input type="submit" value="検索">
+     </form>
+ 
+     <!--ルーム名は検索結果を表示
+-->
+     <p>検索結果...</p>
+     <p class="room_name">もりらのルーム</p>
+
+     <a>
+     <img class ="room-enter_btn02"
+     href="kari" 
+     src="items/03_Guest-assets/room_enter_btn02.png">
+     </a>
+</body>
+
+</html>
