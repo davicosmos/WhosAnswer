@@ -1,0 +1,80 @@
+<!--Htmlを実装
+    VSCodeの拡張機能「HTML PREVIEW」をインストールて、
+    HTMLファイルを開いた状態で以下操作にて表示。
+    Mac：Cmd + K → V
+　　Windows：Ctrl + K → V
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>HOST画面</title>
+    <link rel="stylesheet" href="04_room.css">
+</head>
+
+<body>
+     <img class="back_btn" 
+     src="items/04_room-assets/goout_btn.png">
+
+     <!--るーむ名・ID
+-->
+     <!--[ToDO]ルーム名とIDはDBから持ってくる（多分）-->
+     <h1>もりらのルーム</h1>
+     <h2>ID:9999999</h2>
+
+     <!--参加者一覧
+-->
+     <h3>参加者</h3>
+     <div class="member">
+          <div class="content">
+          <ul style="list-style: none;">
+               <li>もりら
+                    <img src="items/04_room-assets/host_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+               <li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li><li>kuroki
+                    <img src="items/04_room-assets/kick_icon.png" class="mark">
+               </li>
+          </ul>
+     </div>
+     </div>
+     
+     <!--ルーム名は検索結果を表示
+-->
+     <a>
+     <img class ="room-enter_btn02"
+     href="kari" 
+     src="items/04_room-assets/enter_btn.png">
+     </a>
+
+     <a>
+          <img class ="room-enter_btn02"
+          href="kari" 
+          src="items/04_room-assets/dismiss_btn.png">
+          </a>
+</body>
+
+</html>
