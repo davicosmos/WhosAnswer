@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.member {
+.answer_list {
      height: 200px; width: 300px; overflow-y: scroll;
 }
 
