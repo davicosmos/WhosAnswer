@@ -1,3 +1,31 @@
-/*
-CSSを実装
-*/
+@charset "UTF-8";
+
+body{
+    background-color: #92DB5E;
+}
+.container-wrapper{
+}
+
+.container{
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: 50%;
+    left: 20%;
+    width:80%;
+}
+
+.title-logo{
+    object-fit: contain;
+    width:75%
+}
+
+.room-create{
+    object-fit: contain;
+    width:75%
+}
+
+.room-enter{
+    object-fit: contain;
+    width:75%
+}
