@@ -11,9 +11,21 @@
     <meta charset="utf-8">
     <title>HOST画面</title>
     <link rel="stylesheet" href="07_result.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
+     <div class="modal_wrapper">
+          <div class="modal" id="dissmiss_modal">
+               <div class="modal_close">×</div>
+               <div class="modal_content">
+                    <p class="modal_text">本当にルームを解散しますか？</p>
+                    <img class="yes_btn" src="items/07_result-assets/yes_btn.png" href="#">
+                    <img class="no_btn" src="items/07_result-assets/no_btn.png" href="#">
+               </div>
+          </div>
+     </div>
+
      <div class=result>
           <h1>正解は･･････</h1>
           <!--
@@ -87,12 +99,9 @@
           src="items/07_result-assets/continue_btn.png">
      </a>
 
-     <a>
-          <A HREF="01_top.html"><img class ="decision_btn"
-          href="kari" 
-          src="items/07_result-assets/dismiss_btn.png">
-     </a>
+     <img id="modal-show" src="items/07_result-assets/dismiss_btn.png">
 
+<script src="07_script.js"></script>
 </body>
 
 </html>

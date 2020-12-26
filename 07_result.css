@@ -12,3 +12,40 @@ body {
     font-size: 120%;
     background-color: #92DB5E;
 }
+.modal {
+    position: absolute;
+    top: 10%;
+    bottom:10%;
+    left: 10%;
+    background-color: #979596;
+    padding: 20px 0 40px;
+    width: 450px;
+    border: solid 8px #665262;
+    height: auto;
+    text-align: center;
+    display: none;
+}
+
+.modal_content {
+  position: absolute;
+  margin:10%;
+  top:10%;
+  bottom:10%;
+}
+
+.modal_text {
+    font-size: 14px;
+    color: #0e0d0d;
+}
+
+.no_btn {
+    margin-top: 15%;
+}
+
+.modal_close {
+    position: absolute;
+    font-size:80px;
+    right:5%;
+    top:0%;
+    cursor:pointer;
+}
