@@ -11,9 +11,20 @@
     <meta charset="utf-8">
     <title>HOST画面</title>
     <link rel="stylesheet" href="06_choice.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
+     <div class="modal_wrapper">
+          <div class="modal" id="config_modal">
+               <div class="modal_content">
+                    <img class="select_end_btn" src="items/06_answer-assets/select_end_btn.png" href="#">
+                    <p class="modal_text">回答選択を強制的に終了させ、正解画面に進めます。<br>選択を終了していないユーザーは結果に反映されません。</p>
+                    <img class="room_dismiss_btn" src="items/06_answer-assets/room_dismiss_btn.png" href="#">
+                    <p class="modal_text">ゲームを中断してルームを解散します。</p>
+               </div>
+          </div>
+     </div>
      <h1>もりらさんの回答はどれ</h1>
 
      <!--回答一覧
@@ -52,11 +63,12 @@
      <div class=fotter>
           <a>
                <img class ="config"
+               id ="modal-show"
                href="kari" 
                src="items/06_answer-assets/config_icon.png">
           </a>
      </div>
-
+<script src="06_script.js"></script>
 </body>
 
 </html>
