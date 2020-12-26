@@ -43,3 +43,11 @@ body {
 .room_dismiss_btn {
     margin-top: 15%;
 }
+
+.modal_close {
+    position: absolute;
+    font-size:80px;
+    right:5%;
+    top:0%;
+    cursor:pointer;
+}
