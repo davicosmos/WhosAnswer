@@ -12,3 +12,5 @@ body {
     font-size: 120%;
     background-color: #92DB5E;
 }
+
+a { text-decoration: none; }

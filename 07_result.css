@@ -42,10 +42,12 @@ body {
     margin-top: 15%;
 }
 
-.modal_close {
+.close_btn {
     position: absolute;
     font-size:80px;
     right:5%;
     top:0%;
     cursor:pointer;
 }
+
+a { text-decoration: none; }
