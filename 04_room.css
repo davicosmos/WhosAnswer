@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
 .member {
-     height: 200px; width: 300px; overflow-y: scroll;
+     height: 400px;
+     width: 90%;
+     overflow-y: scroll;
+     margin-top:5%;
+     margin-bottom:5%;
 }
 
-.content {
-    background-color: #92DB5E; color: rgb(255, 255, 255);
-} 
 body {
     color: white;
     font-size: 120%;
@@ -14,3 +15,12 @@ body {
 }
 
 a { text-decoration: none; }
+
+.room-enter_btn02 {
+    display: block;
+    margin-bottom: 5%;
+}
+
+.room-dismiss_btn {
+    display: block;
+}

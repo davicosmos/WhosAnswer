@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
 .member {
-     height: 200px; width: 300px; overflow-y: scroll;
+     height: 400px;
+     width: 90%;
+     overflow-y: scroll;
+     margin-top:5%;
+     margin-bottom:5%;
 }
 
 .content {
