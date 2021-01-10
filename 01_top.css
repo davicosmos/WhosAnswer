@@ -17,16 +17,21 @@ body{
 }
 
 .title-logo{
+    display: block;
+    margin-bottom: 15%;
     object-fit: contain;
     width:75%
 }
 
 .room-create{
+    display:block;
     object-fit: contain;
-    width:75%
+    width:75%;
+    margin-bottom:10%;
 }
 
 .room-enter{
+    display:block;
     object-fit: contain;
     width:75%
 }
