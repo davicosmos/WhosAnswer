@@ -7,29 +7,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<!--画面外設定-->
 <head>
     <meta charset="utf-8">
     <title>HOST画面</title>
+    <!--CSSの適用場所指定-->
     <link rel="stylesheet" href="06_choice.css">
+    <!--モーダルのためのJqueryの適用-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
+<!--中身の設定-->
 <body>
+     <!--モーダル内設定-->
      <div class="modal_wrapper">
           <div class="modal" id="config_modal">
+               <!--モーダルをキャンセル-->
                <div class="modal_close">×</div>
                <div class="modal_content">
+                    <!--選択終了させる-->
                     <a href="07_result.html"><img class="select_end_btn" src="items/06_answer-assets/select_end_btn.png"></a>
                     <p class="modal_text">回答選択を強制的に終了させ、正解画面に進めます。<br>選択を終了していないユーザーは結果に反映されません。</p>
+                    <!--ルームを解散する-->
                     <a href="01_top.html"><img class="room_dismiss_btn" src="items/06_answer-assets/room_dismiss_btn.png" ></a>
                     <p class="modal_text">ゲームを中断してルームを解散します。</p>
                </div>
           </div>
      </div>
+     
+     <!--問題表示-->
      <h1>もりらさんの回答はどれ</h1>
 
-     <!--回答一覧
--->
+     <!--回答一覧-->
      <div class="answer_list">
           <div class="content">
           <ol>
@@ -52,15 +61,14 @@
      </div>
      </div>
      
+     <!--決定ボタン-->
      <a>
           <A HREF="07_result.html"><img class ="decision_btn"
           href="kari" 
           src="items/06_answer-assets/decision_btn.png">
      </a>
 
-     <!--
-          設定ボタン
-     -->
+     <!--設定ボタン-->
      <div class=fotter>
           <a>
                <img class ="config"

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*参加者のスクロール範囲内設定　marginで余白*/
 .member {
      height: 400px;
      width: 90%;
@@ -8,19 +9,23 @@
      margin-bottom:5%;
 }
 
+/*文字色　文字サイズ　背景色*/
 body {
     color: white;
     font-size: 120%;
     background-color: #92DB5E;
 }
 
+/*リンクボタンのアンダーバーを消す*/
 a { text-decoration: none; }
 
+/*はじめるボタン　marginで余白*/
 .room-enter_btn02 {
     display: block;
     margin-bottom: 5%;
 }
 
+/*解散するボタン*/
 .room-dismiss_btn {
     display: block;
 }

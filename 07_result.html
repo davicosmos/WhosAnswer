@@ -7,20 +7,28 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<!--画面外設定-->
 <head>
     <meta charset="utf-8">
     <title>HOST画面</title>
+    <!--CSSの適用場所指定-->
     <link rel="stylesheet" href="07_result.css">
+    <!--モーダルのためのJqueryの適用-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
+<!--中身の設定-->
 <body>
+      <!--モーダル内設定-->
      <div class="modal_wrapper">
           <div class="modal" id="dissmiss_modal">
+               <!--モーダルをキャンセル-->
                <div class="close_btn modal_close">×</div>
                <div class="modal_content">
                     <p class="modal_text">本当にルームを解散しますか？</p>
+                    <!--はいボタン-->
                     <a href="01_top.html"><img class="yes_btn" src="items/07_result-assets/yes_btn.png"></a>
+                    <!--いいえボタン-->
                     <img class="no_btn modal_close" src="items/07_result-assets/no_btn.png">
                </div>
           </div>
@@ -28,17 +36,14 @@
 
      <div class=result>
           <h1>正解は･･････</h1>
-          <!--
-               星画像に番号入れちゃう
-          -->
+          <!--星画像に番号入れちゃう-->
           <div class=correct_num>
                <img src="items/07_result-assets/star_mark.png">
           </div>
      </div>
      
 
-     <!--回答一覧
--->
+     <!--回答一覧-->
      <div class="answer_list">
           <div class="content">
           <ol>
@@ -53,6 +58,7 @@
 
                <li>
                     <div class=star>
+                          <!--正解に星を入れる-->
                          <img src="items/07_result-assets/star_mark.png">
                     </div>
                     <div class=ansewer_box>ホゲホゲ保gほお￥￥￥げおへおごえhごえhごえhごえオエg吠えhごえああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
@@ -93,12 +99,14 @@
      </div>
      </div>
      
+      <!--つづけるボタン-->
      <a>
           <A HREF="05_question.html"><img class ="decision_btn"
           href="kari" 
           src="items/07_result-assets/continue_btn.png">
      </a>
 
+      <!--解散するボタン-->
      <img id="modal-show" src="items/07_result-assets/dismiss_btn.png">
 
 <script src="07_script.js"></script>

@@ -7,27 +7,28 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<!--画面外設定-->
 <head>
     <meta charset="utf-8">
     <title>HOST画面</title>
+    <!--CSSの適用場所指定-->
     <link rel="stylesheet" href="03_guest.css">
 </head>
 
+<!--中身の設定-->
 <body>
      <A HREF="01_top.html"><img class="back_btn" 
      src="items/02_HOST-assets/back.png">
      </A>
 
-     <!--ユーザー名入力フォーム
--->
+     <!--ユーザー名入力フォーム-->
      <h1>ユーザー名を入力してください</h1>
      <p>※最大10文字</p>
      <form action="#" method="POST">
      <input type="text" name="userName" maxlength="10" size="20">
      </form>
 
-     <!--ルームID入力フォーム
--->
+     <!--ルームID入力フォーム-->
      <h1>ルームIDを入力してください</h1>
 
      <form action="#" method="GET">
@@ -35,11 +36,11 @@
      <input type="submit" value="検索">
      </form>
  
-     <!--ルーム名は検索結果を表示
--->
+     <!--ルーム名は検索結果を表示-->
      <p>検索結果...</p>
      <p class="room_name">もりらのルーム</p>
 
+     <!--このルームに入るボタン-->
      <a>
      <A HREF="04_room.html"><img class ="room-enter_btn02"
      href="kari" 

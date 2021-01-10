@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*回答リスト範囲内設定　marginで余白*/
 .answer_list {
      height: 400px;
      width: 90%;
@@ -8,16 +9,19 @@
      margin-bottom:5%;
 }
 
+/*CSS疑似空間*/
 .content {
     background-color: #92DB5E; color: rgb(255, 255, 255);
 } 
+
+/*文字色　文字サイズ　背景色*/
 body {
     color: white;
     font-size: 120%;
     background-color: #92DB5E;
 }
 
-  
+/*モーダル設定*/
 .modal {
     position: absolute;
     top: 10%;
@@ -31,21 +35,25 @@ body {
     display: none;
 }
 
+/*モーダル疑似空間*/
 .modal_content {
   width:80%;
   margin:0 auto;
   margin-top:25%;
 }
 
+/*モーダル内テキストサイズ　カラー*/
 .modal_text {
     font-size: 14px;
     color: #0e0d0d;
 }
 
+/*モーダル内　解散するボタン設定*/
 .room_dismiss_btn {
     margin-top: 15%;
 }
 
+/*モーダルキャンセルボタン設定*/
 .modal_close {
     position: absolute;
     font-size:80px;
@@ -54,6 +62,7 @@ body {
     cursor:pointer;
 }
 
+/*設定ボタン　marginで余白*/
 .config {
     margin: 20px;
 }
