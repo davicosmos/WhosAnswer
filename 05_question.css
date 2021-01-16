@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-/*謎のmember*/
+/*謎のmember
 .member {
      height: 400px;
      width: 90%;
      overflow-y: scroll;
      margin-top:5%;
      margin-bottom:5%;
-}
+}*/
 
 /*CSS疑似空間*/
 .content {
