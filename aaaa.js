@@ -158,3 +158,25 @@ switch (rank) {
     console.log("メダルはありません");
     break;
 }
+
+
+
+//第二章
+
+// 変数numberを定義してください
+
+
+// 変数numberに1を加えて、その後に変数numberの値を出力してください
+number += 1;
+console.log(number);
+
+// 上述の2行のコードを4回、貼り付けてください
+number += 1;
+console.log(number);
+number += 1;
+console.log(number);
+number += 1;
+console.log(number);
+number += 1;
+console.log(number);
+
