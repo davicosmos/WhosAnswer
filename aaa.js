@@ -1,1 +1,0 @@
-//JavaScriptのコードを実装
