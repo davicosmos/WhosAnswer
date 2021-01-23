@@ -161,7 +161,10 @@ switch (rank) {
 
 
 
-//第二章
+
+
+
+//第２章
 
 // 変数numberを定義してください
 
@@ -326,3 +329,174 @@ console.log("おすすめメニューはこちら");
 for(let i=0;i<cafe.menus.length;i++){
   console.log(cafe.menus[i]);
 }
+
+
+
+
+
+
+// 第3章
+
+
+// 定数greetにアロー関数を代入してください またはfunction(){
+const greet = ()=>{
+  console.log("こんにちは！");
+ 
+};
+
+// 定数greetを呼び出してください
+greet();
+
+
+// 関数の引数にnameを追加してください
+const greeet = (namee) => {
+  // 「こんにちは、〇〇さん」となるように出力してください
+  console.log(`こんにちは、${namee}さん`);
+  
+};
+
+// greetの引数に「ひつじ仙人」を渡して呼び出してください
+greeet("ひつじ仙人");
+
+
+
+// 関数の引数にnumber1とnumber2を追加してください
+const add = (number1,number2) => {
+  // number1とnumber2を足した値をコンソールに出力してください
+  console.log(number1 + number2);
+  
+};
+
+// 引数に5と7を渡して関数を呼び出してください
+add(5,7);
+
+
+
+
+const half = (number) => {
+  // numberを2で割った値を戻り値として返してください
+  return number/2;
+};
+
+// 定数resultを定義してください
+const result = half(130);
+
+// 「130の半分は〇〇です」となるように出力してください
+console.log(`130の半分は${result}です`);
+
+
+
+const check = (number) => {
+  // numberが3の倍数かどうかを戻り値として返してください
+  return number % 3 === 0;
+  
+};
+
+// if文の条件式で、checkを呼び出してください
+if (check(123)) {
+  console.log("3の倍数です");
+} else {
+  console.log("3の倍数ではありません");
+}
+
+
+// 定数nameを定義してください
+const naaame="にんじゃわんこ";
+
+const introducee = (naaame) => {
+  // 「わたしは〇〇です」を出力してください
+  console.log(`わたしは${naaame}です`);
+  
+};
+
+// 関数introduceを呼び出してください
+introducee("ひつじ仙人");
+
+// 定数nameの値を出力してください
+console.log(naaame);
+
+const number1 = 103;
+const number2 = 72;
+const number3 = 189;
+
+// getMax関数を定義してください
+const getMax = (a, b, c) => {
+  let max = a;
+  
+  if (b > max) {
+    max = b;
+  }
+  if (c > max) {
+    max = c;
+  }
+  
+  return max;
+};
+
+// 「最大値は○○です」と出力してください
+const max = getMax(number1, number2, number3);
+console.log(`最大値は${max}です`);
+
+
+
+
+
+
+
+
+// 第4章
+
+
+// 定数animalを定義してください
+const animale={
+  name:"レオ",
+  age:3,
+  greet:() => {
+    console.log("こんにちは");
+  }
+};
+
+// animalのnameプロパティの値を出力してください
+console.log(animale.name);
+
+// animalのgreetプロパティの関数を実行してください
+animale.greet();
+
+
+class Animal {
+}
+
+// Animalクラスのインスタンスを定数animalに代入してください
+const aniimal = new Animal();
+
+// 定数animalの値を出力してください
+console.log(aniimal);
+
+class Aniemal {
+  // コンストラクタを追加してください
+  constructor(){
+  console.log("インスタンスを生成しました");
+  }
+  
+}
+
+
+
+
+class Aniiimal {
+  constructor() {
+    // nameの値に文字列「レオ」を代入してください
+    this.name="レオ";
+    
+    // ageの値に数値の「3」を代入してください
+    this.age=3;
+  }
+}
+
+const aniiimal = new Aniiimal();
+
+// 「名前: 〇〇」となるように出力してください
+console.log(`名前:${aniiimal.name}`);
+
+// 「年齢: 〇〇」となるように出力してください
+console.log(`年齢:${aniiimal.age}`);
