@@ -1,16 +1,30 @@
 //ホストによるルーム作成画面の処理
-//呼び出し元はHTMLやりとりを司りし者ファイル
 
-//htmlからホストネームの文字列を受け取る処理
-const hostName = hostNameText;
+//htmlで入力されたデータを利用するため以下のファイルを参照する
+const getHostName = require('./00_htmlManage.js');
 
+//ホストユーザーにてルームを作成する処理のまとまり
+class createRoom{
+    
+    //htmlからホストネームの文字列を受け取る処理
+    hostName = getHostName;
+
+}
 console.log(hostName); //受け取ったホストネームの確認
 
 
 //DBやりとりを司りし者クラスを呼び出す処理
 //ホストのユーザー名を保存+部屋IDを作成
-//未完成
+class callDbManage{
+
+    //未完成
+
+}
 
 
 //04の画面・処理を呼び出してhtmlへ返す処理
-//未完成
+class callPage04{
+
+    //未完成
+
+}
