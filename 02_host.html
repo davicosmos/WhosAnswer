@@ -29,21 +29,22 @@
         </A>
 
         <!--入力フォーム説明-->
+        <form action="#" method="post">
         <div class ="container">
         <h1>ユーザー名を入力してください</h1><p>※最大10文字</p>
         <!--入力フォーム作成-->
-        <input type="text" id="hostNameImput" name="text1" maxlength="10" size="50%">
+        <input type="text" name="hostNameImput" maxlength="10" size="50%">
 
         <!--ルーム作成ボタン-->
 <!--    <a href="04_room.html"><img class ="room-create_btn02"-->
 
-<!--ここで、ルーム作成のボタンを押したことをトリガーに、00_htmlManage.jsの02画面用の処理を走らせたい（未完成）-->
-    <img class ="room-create_btn02" id="htmlManage-call" 
-        src="items/02_HOST-assets/room_create_btn02.png" > 
+<!--    ここで、ルーム作成のボタンを押したことをトリガーに、00_htmlManage.jsの02画面用の処理を走らせたい（未完成）-->
+        <img class ="room-create_btn02" id="htmlManage-call" src="items/02_HOST-assets/room_create_btn02.png" onClick="return check();"> 
         
         
 <!--    </a> -->
     </div>
+    </form>
 </body>
 
 </html>

@@ -4,10 +4,8 @@
 
 
 //ホストネームを受け取る
-module.exports = function() {
-
-    var get_hostName = document.getElementById("hostNameImput").value; //htmlからホストネームの入力内容を取得
-//    document.getElementById("output_message").innerHTML = get_hostName;
-console.log(get_hostName);
-
-}
+class getHostName{
+    document.getElementById('htmlManage-call').onclick = function(){
+        //処理
+    }
+};
