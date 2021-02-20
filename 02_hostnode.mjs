@@ -1,7 +1,7 @@
 //ホストによるルーム作成画面の処理
 
 //htmlで入力されたデータを利用するため以下のファイルを参照する
-import getHostName from './00_htmlManage.js';
+//import getHostName from './00_htmlManage.mjs';
 
 //ホストユーザーにてルームを作成する処理のまとまり
 class createRoom{
