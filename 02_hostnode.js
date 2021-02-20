@@ -1,18 +1,18 @@
 //ホストによるルーム作成画面の処理
 
 //htmlで入力されたデータを利用するため以下のファイルを参照する
-import {getHostName}from './00_htmlManage.mjs';
+import getHostName from './00_htmlManage.js';
 
 //ホストユーザーにてルームを作成する処理のまとまり
 class createRoom{
     constructor(){
 
         //htmlからホストネームの文字列を受け取る処理
-    //let hostName = getHostName;
+        //let hostName = getHostName;
     
-}
+    }
 };
-getHostName(); //受け取ったホストネームの確認
+console.log(getHostName); //受け取ったホストネームの確認
 
 
 //DBやりとりを司りし者クラスを呼び出す処理
