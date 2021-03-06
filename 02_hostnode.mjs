@@ -3,6 +3,10 @@
 //htmlで入力されたデータを利用するため以下のファイルを参照する
 //import getHostName from './00_htmlManage.mjs';
 
+
+//00との連携ができたテイで変数を仮置き
+let hostNameUketori;
+
 //ホストユーザーにてルームを作成する処理のまとまり
 class createRoom{
     constructor(){
@@ -28,5 +32,8 @@ class callDbManage{
 class callPage04{
 
     //未完成
+    
+    
 
 }
+location.href = "https://google.co.jp";
