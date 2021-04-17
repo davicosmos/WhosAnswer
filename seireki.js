@@ -1,3 +1,4 @@
+//テスト作成したものです。やっほー。
 // 西暦年から昭和年を求める
 //process.stdin.resume();
 process.stdin.setEncoding('utf8');
