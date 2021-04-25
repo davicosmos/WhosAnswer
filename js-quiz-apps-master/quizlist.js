@@ -34,6 +34,6 @@ const quiz = [
       quizID:"7",
       question: 'ドラクエ8の主人公の名前は？',
       answers: [ 'じぶん', 'トト', 'カエサル', 'ごはん'],
-      correct: 'フリオニール'
+      correct: 'じぶん'
     }
   ];
