@@ -8,6 +8,16 @@ const $question = $doc.getElementById('js-question');
 const $buttons = $doc.querySelectorAll('.btn');
 
 const quizLen = quiz.length;
+
+//1.ランダム数字の上限を指定(0〜指定した数字の範囲)
+let maxNumRange = quizLen;
+
+//2.ランダムな数字を生成
+let randomNum = parseInt(Math.random() * maxNumRange) + 1;
+
+//3.ランダム生成された数字の検証
+console.log(randomNum);
+
 let quizCount = 0;
 let score = 0;
 
