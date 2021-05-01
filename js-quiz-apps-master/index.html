@@ -29,7 +29,13 @@
 
      <div id="js-items" class="d-flex justify-content-center">
         <div class="m-2">
-          <input type="text"  id="hostNameImput" name="hostNameImput" maxlength="10" size="50%">
+
+          <!-- 文字列をテキスト入力させる枠 -->
+          <label>回答入力：
+            <input type="text"  id="inputAnswerTextId" name="inputAnswerTextName" value=""  maxlength="10" size="50%">
+          </label>
+          <button onclick="getAnswerText()">入力</button>
+
           <button type="button" id="js-btn-1" class="btn btn-primary">回答する</button>
         </div>
        <div class="m-2">

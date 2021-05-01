@@ -1,4 +1,4 @@
-var script = document.createElement('script'); //変数名は適当なものにでも
+let script = document.createElement('script'); //変数名は適当なものにでも
 script.src = "quizlist.js"; //ファイルパス
 document.head.appendChild(script); //<head>に生成
 
@@ -8,6 +8,15 @@ const $question = $doc.getElementById('js-question');
 const $buttons = $doc.querySelectorAll('.btn');
 
 const quizLen = quiz.length;
+
+
+//HTMLに入力された文字を取得・コンソールに表示
+const getAnswerText = () => {
+  const answerText = document.getElementById("inputAnswerTextId").value;
+  console.log("入力されたテキストは、「" + answerText + "」だぜ！。");
+}
+console.log("この文章はテキスト入力タイミング関係なく出力するぜ！");
+
 
 //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
 let maxNumRange = quizLen;
@@ -73,12 +82,15 @@ const init = () => {
 const goToNext = () => {
   syutudaiJun++;
   if(syutudaiJun < quizLen){
-    init(quizCount);
+    init(quizCount = randoms[syutudaiJun]);
   } else {
     $window.alert('クイズ終了！');
     showEnd();
   }
 };
+
+
+
 
 const judge = (elm) => {
   if(elm.textContent === quiz[quizCount].correct){
