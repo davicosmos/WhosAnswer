@@ -10,14 +10,6 @@ const $buttons = $doc.querySelectorAll('.btn');
 const quizLen = quiz.length;
 
 
-//HTMLに入力された文字を取得・コンソールに表示
-const getAnswerText = () => {
-  const answerText = document.getElementById("inputAnswerTextId").value;
-  console.log("入力されたテキストは、「" + answerText + "」だぜ！。");
-}
-console.log("この文章はテキスト入力タイミング関係なく出力するぜ！");
-
-
 //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
 let maxNumRange = quizLen;
 
@@ -90,7 +82,23 @@ const goToNext = () => {
 };
 
 
-const judge = (elm) => {
+//HTMLに入力された文字を取得・コンソールに表示
+const getAnswerText = () => {
+  const answerText = document.getElementById("inputAnswerTextId").value;
+
+  if(answerText === quiz[quizCount].correct){
+    $window.alert('正解!');
+    score++;
+  } else {
+    $window.alert('不正解!');
+  }
+  goToNext();
+  console.log("入力されたテキストは、「" + answerText + "」だぜ！。");
+}
+console.log("この文章はテキスト入力タイミング関係なく出力するぜ！");
+
+
+/* const judge = (elm) => {
   if(elm.textContent === quiz[quizCount].correct){
     $window.alert('正解!');
     score++;
@@ -98,7 +106,7 @@ const judge = (elm) => {
     $window.alert('不正解!');
   }
   goToNext();
-};
+}; */
 
 const showEnd = () => {
   $question.textContent = '終了！あなたのスコアは' + score + '/' + quizLen + 'です';
@@ -110,7 +118,7 @@ const showEnd = () => {
 init();
 
 let answersIndex = 0;
-let answersLen = quiz[quizCount].answers.length;
+let answersLen = quiz[quizCount].length;
 
 while(answersIndex < answersLen){
   $buttons[answersIndex].addEventListener('click', (e) => {
