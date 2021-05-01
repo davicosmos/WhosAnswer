@@ -33,7 +33,7 @@ for(i = min; i <= max; i++){
     }
   }
 }
- 
+
 /** min以上max以下の整数値の乱数を返す */
 function randomNum(min, max){
   return Math.floor( Math.random() * (max - min + 1)) + min;
@@ -82,6 +82,10 @@ const goToNext = () => {
 };
 
 
+/** 回答一覧表示用配列 */
+let userAnswerData = [];
+
+
 //HTMLに入力された文字を取得・コンソールに表示
 const getAnswerText = () => {
   const answerText = document.getElementById("inputAnswerTextId").value;
@@ -92,10 +96,18 @@ const getAnswerText = () => {
   } else {
     $window.alert('不正解!');
   }
+  
+  //点数発表で使う配列に回答内容を入れていく
+  userAnswerData.push(answerText);
+  console.log(userAnswerData);
+
   goToNext();
   console.log("入力されたテキストは、「" + answerText + "」だぜ！。");
 }
 console.log("この文章はテキスト入力タイミング関係なく出力するぜ！");
+
+
+
 
 
 /* const judge = (elm) => {
@@ -111,6 +123,8 @@ console.log("この文章はテキスト入力タイミング関係なく出力�
 const showEnd = () => {
   $question.textContent = '終了！あなたのスコアは' + score + '/' + quizLen + 'です';
   
+//HTMLに表示のためのスペースをつくり、回答した内容を表示させるようにする。
+
   const $items = $doc.getElementById('js-items');
   $items.style.visibility = 'hidden';
 };
