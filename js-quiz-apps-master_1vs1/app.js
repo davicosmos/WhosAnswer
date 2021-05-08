@@ -140,6 +140,15 @@ const $items = $doc.getElementById('js-items');
   $items.style.visibility = 'hidden';
   $result_01.style.display = 'block';
   $result_02.style.display = 'block';
+
+  //リザルトに出す表にあたいを入れるために、配列から要素を取得する
+  //＜＜＜＜＜ここを治す！＞＞＞＞＞　for文を整えるのと、最後の問題についてしかリザルトが取れていないのを治す。あとは、正誤判定のマルバツIFぶんを盛り込む。
+  let n = 0;
+  while(n < quizLen){
+    n++;
+    $result_02.textContent = userAnswerData[n] + quiz[randoms[n]].question + quiz[randoms[n]].correct;
+  }
+
 }; 
 init();
 
