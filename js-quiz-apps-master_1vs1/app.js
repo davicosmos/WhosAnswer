@@ -9,6 +9,13 @@ const $buttons = $doc.querySelectorAll('.btn');
 
 const quizLen = quiz.length;
 
+//リザルト画面になったときに回答内容などを表示すべく、それまでは回答内容は非表示にする
+const $result_01 = $doc.getElementById('js-result_01');
+$result_01.style.display = 'none';
+
+//リザルト画面になったときに回答内容などを表示すべく、それまでは回答内容は非表示にする
+const $result_02 = $doc.getElementById('js-result_02');
+$result_02.style.display = 'none';
 
 //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
 let maxNumRange = quizLen;
@@ -86,6 +93,9 @@ const goToNext = () => {
 let userAnswerData = [];
 
 
+
+
+
 //HTMLに入力された文字を取得・コンソールに表示
 const getAnswerText = () => {
   const answerText = document.getElementById("inputAnswerTextId").value;
@@ -122,13 +132,15 @@ console.log("この文章はテキスト入力タイミング関係なく出力�
 
 const showEnd = () => {
   $question.textContent = '終了！あなたのスコアは' + score + '/' + quizLen + 'です';
-  
+
 //HTMLに表示のためのスペースをつくり、回答した内容を表示させるようにする。
 
-  const $items = $doc.getElementById('js-items');
+//
+const $items = $doc.getElementById('js-items');
   $items.style.visibility = 'hidden';
-};
-
+  $result_01.style.display = 'block';
+  $result_02.style.display = 'block';
+}; 
 init();
 
 let answersIndex = 0;
