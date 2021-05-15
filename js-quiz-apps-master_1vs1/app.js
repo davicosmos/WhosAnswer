@@ -17,6 +17,10 @@ $result_01.style.display = 'none';
 const $result_02 = $doc.getElementById('js-result_02');
 $result_02.style.display = 'none';
 
+//リザルト画面になったときに回答内容などを表示すべく、それまでは回答内容は非表示にする
+const $resultTable = $doc.getElementById('resultTable');
+//$resultTable.style.display = 'none';
+
 //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
 let maxNumRange = quizLen;
 
@@ -95,16 +99,26 @@ let userAnswerData = [];
 
 
 
+/** 模範解答と入力した回答の比較をし正解ならまるを返す配列 */
+let answerMatchList = [];
 
 //HTMLに入力された文字を取得・コンソールに表示
 const getAnswerText = () => {
   const answerText = document.getElementById("inputAnswerTextId").value;
 
   if(answerText === quiz[quizCount].correct){
+
+    answerMatchList.push("○");
+
     $window.alert('正解!');
     score++;
+
   } else {
+
+    answerMatchList.push("×");
+
     $window.alert('不正解!');
+
   }
   
   //点数発表で使う配列に回答内容を入れていく
@@ -115,7 +129,6 @@ const getAnswerText = () => {
   console.log("入力されたテキストは、「" + answerText + "」だぜ！。");
 }
 console.log("この文章はテキスト入力タイミング関係なく出力するぜ！");
-
 
 
 
@@ -142,12 +155,33 @@ const $items = $doc.getElementById('js-items');
   $result_02.style.display = 'block';
 
   //リザルトに出す表にあたいを入れるために、配列から要素を取得する
-  //＜＜＜＜＜ここを治す！＞＞＞＞＞　while文を整えるのと、最後の問題についてしかリザルトが取れていないのを治す。あとは、正誤判定のマルバツIFぶんを盛り込む。
+  //＜＜＜＜＜ここを治す！＞＞＞＞＞　while文を整えた、。最後の問題についてしかリザルトが取れていないのを治った。正誤判定のマルバツIFぶんを盛り込んだ。テーブルの行が自動追加される処理は入れた。
+  //あとやるべきは、テーブルの列を自動追加すること、出題された問題や自分の答えなどがうまくテーブルにあわられる。
+
   let n = 0;
   while(n < quizLen){
-    $result_02.textContent = userAnswerData[n] + quiz[randoms[n]].question + quiz[randoms[n]].correct;
+//    $result_02.textContent = quiz[randoms[n]].question + quiz[randoms[n]].correct + userAnswerData[n] + answerMatchList[n];
+    
+    // table要素を取得
+    let tableElem = document.getElementById('resultTable');
+    
+    // tbody要素にtr要素（行）を最後に追加
+    let trElem = tableElem.tBodies[0].insertRow(-1);
+    
+    // td要素を追加
+    let cellElem = trElem.insertCell(0);
+    
+    // td要素にテキストを追加
+    //cellElem.appendChild(document.createTextNode('セル'));
+    //cellElem.appendChild(document.createTextNode(quiz[randoms[n]].question + quiz[randoms[n]].correct + userAnswerData[n] + answerMatchList[n]));
+    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].question));
+    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].quiz[randoms[n]].correct));
+    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].userAnswerData[n]));
+    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].answerMatchList[n]));
+
     n++;
   }
+  console.log(answerMatchList);
 
 }; 
 init();
