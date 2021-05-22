@@ -169,15 +169,21 @@ const $items = $doc.getElementById('js-items');
     let trElem = tableElem.tBodies[0].insertRow(-1);
     
     // td要素を追加
-    let cellElem = trElem.insertCell(0);
+//    let cellElem = trElem.insertCell(0);
     
     // td要素にテキストを追加
     //cellElem.appendChild(document.createTextNode('セル'));
     //cellElem.appendChild(document.createTextNode(quiz[randoms[n]].question + quiz[randoms[n]].correct + userAnswerData[n] + answerMatchList[n]));
-    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].question));
-    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].quiz[randoms[n]].correct));
-    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].userAnswerData[n]));
-    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].answerMatchList[n]));
+
+    trElem.insertCell(0).appendChild(document.createTextNode(quiz[randoms[n]].question));
+    trElem.insertCell(1).appendChild(document.createTextNode(quiz[randoms[n]].correct));
+    trElem.insertCell(2).appendChild(document.createTextNode(userAnswerData[n]));
+    trElem.insertCell(3).appendChild(document.createTextNode(answerMatchList[n]));
+
+/*     cellElem.appendChild(document.createTextNode(quiz[randoms[n]].question));
+    cellElem.appendChild(document.createTextNode(quiz[randoms[n]].correct));
+    cellElem.appendChild(document.createTextNode(userAnswerData[n]));
+    cellElem.appendChild(document.createTextNode(answerMatchList[n])); */
 
     n++;
   }
