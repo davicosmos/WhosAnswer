@@ -10,8 +10,8 @@ const $buttons = $doc.querySelectorAll('.btn');
 const quizLen = quiz.length;
 
 //リザルト画面になったときに回答内容などを表示すべく、それまでは回答内容は非表示にする
-const $result_01 = $doc.getElementById('js-result_01');
-$result_01.style.display = 'none';
+/* const $result_01 = $doc.getElementById('js-result_01');
+$result_01.style.display = 'none'; */
 
 //リザルト画面になったときに回答内容などを表示すべく、それまでは回答内容は非表示にする
 const $result_02 = $doc.getElementById('js-result_02');
@@ -151,7 +151,7 @@ const showEnd = () => {
 //
 const $items = $doc.getElementById('js-items');
   $items.style.visibility = 'hidden';
-  $result_01.style.display = 'block';
+//  $result_01.style.display = 'block';
   $result_02.style.display = 'block';
 
   //リザルトに出す表にあたいを入れるために、配列から要素を取得する
