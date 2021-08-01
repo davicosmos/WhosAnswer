@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/*回答リスト範囲内設定　marginで余白*/
+.answer_list {
+     height: 600px;
+     width: 90%;
+     overflow-y: scroll;
+     margin-top:5%;
+     margin-bottom:5%;
+}
+
+/*CSS疑似空間*/
+.content {
+    background-color: #92DB5E; color: rgb(255, 255, 255);
+} 
+
+/*文字色　文字サイズ　背景色*/
+body {
+    color: white;
+    font-size: 120%;
+    background-color: #92DB5E;
+}
+
+/*つづけるボタン　marginで余白*/
+.decision_btn{
+    display:block;
+    margin-bottom: 5%;
+
+}
+
+/*モーダル設定*/
+.modal {
+    position: absolute;
+    top: 10%;
+    bottom:10%;
+    left: 7%;
+    background-color: #979596;
+    padding: 20px 0 40px;
+    width:85%;
+    border: solid 8px #665262;
+    height: 50%;
+    text-align: center;
+    display: none;
+}
+
+/*モーダル疑似空間*/
+.modal_content {
+    width:80%;
+    margin:0 auto;
+    margin-top:25%;
+}
+
+/*モーダル内テキストサイズ　カラー*/
+.modal_text {
+    font-size: 14px;
+    color: #0e0d0d;
+}
+
+/*いいえボタン　marginで余白*/
+.no_btn {
+    margin-top: 15%;
+}
+
+/*モーダル内キャンセルボタン*/
+.close_btn {
+    position: absolute;
+    font-size:80px;
+    right:5%;
+    top:0%;
+    cursor:pointer;
+}
+
+/*リンクボタンのアンダーバーを消す*/
+a { text-decoration: none; }

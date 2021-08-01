@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*トップページに戻るボタン*/
+.back-btn {
+    width: 50px;
+    height: 50px;
+}
+
+/*表示エリア範囲　コンテナ*/
+.container{
+    position: absolute;
+    right: 50%;
+    left: 20%;
+    width:80%;
+}
+
+/*文字色　文字フォントサイズ　背景色*/
+body {
+    color: white;
+    font-size: 120%;
+    background-color: #92DB5E;
+}
+
+/*サーバー側に情報を橋渡しする*/
+input{
+    display: block;
+    right: 50%;
+    left: 20%;
+}
+
+/*ルーム作成ボタン*/
+.room-create_btn02 {
+    display: block;
+    margin-top:80px;
+}
+
+/*リンクボタンのアンダーバーを消す*/
+a { text-decoration: none; }

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/*背景色指定*/
+body{
+    background-color: #92DB5E;
+}
+
+/*表示エリア範囲　コンテナ*/
+.container{
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: 50%;
+    left: 20%;
+    width:80%;
+}
+
+/*タイトルロゴ　marginで余白*/
+.title-logo{
+    display: block;
+    margin-bottom: 15%;
+    object-fit: contain;
+    width:75%
+}
+
+/*ルームを作るボタン　marginで余白*/
+.room-create{
+    display:block;
+    object-fit: contain;
+    width:75%;
+    margin-bottom:10%;
+}
+
+/*ルームに入るボタン*/
+.room-enter{
+    display:block;
+    object-fit: contain;
+    width:75%
+}

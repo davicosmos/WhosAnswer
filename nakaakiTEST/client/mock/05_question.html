@@ -1,0 +1,45 @@
+<!--Htmlを実装
+    VSCodeの拡張機能「HTML PREVIEW」をインストールて、
+    HTMLファイルを開いた状態で以下操作にて表示。
+    Mac：Cmd + K → V
+　　Windows：Ctrl + K → V
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--画面外設定-->
+<head>
+    <meta charset="utf-8">
+    <title>HOST画面</title>
+    <!--CSSの適用場所指定-->
+    <link rel="stylesheet" href="05_question.css">
+</head>
+
+<!--中身の設定-->
+<body>
+     <!--お題の表示-->
+     <div class=container>
+          <h1>お題</h1>
+          <div class=titlecontainer>
+               <p>つい気になってしまう異性の行動は</p>
+          </div>
+
+          <!--入力フォーム -->
+          <form action="#" method="POST">
+               <textarea class="answer" maxlength="140"></textarea>
+          </form>
+           <!--エラー表示設定-->
+          <p class=info>他のユーザーの回答と重複しています</p>
+
+          </div>
+     </div>
+
+     <a>
+          <!--回答するボタン-->
+          <A HREF="06_choice.html"><img class ="room-enter_btn02"
+          href="kari" 
+          src="./items/05_question-assets/answer_btn.png">
+          </a>
+</body>
+
+</html>
