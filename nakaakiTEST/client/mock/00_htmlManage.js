@@ -1,3 +1,10 @@
+const apiUrl = 'https://us-central1-whosanswer.cloudfunctions.net/app';
+
+
+
+
+
+
 //00.mjsを優先する。このjsファイルは封印。
 
 //htmlとの受け渡しを司る処理全般のファイル
@@ -15,4 +22,4 @@ function getHostName(){
 //02-2.変数を02j.sファイルに渡す（そのために02.jsファイルをこのファイルで読み込む）
 
 
-export default getHostName;
+export const apiUrl;

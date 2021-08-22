@@ -10,6 +10,7 @@ class createRoom{
         //htmlからホストネームの文字列を受け取る処理
     //let hostName = getHostName;
     
+    
 }
 };
 getHostName(); //受け取ったホストネームの確認

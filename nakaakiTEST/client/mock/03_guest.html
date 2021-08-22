@@ -18,34 +18,43 @@
 <!--中身の設定-->
 <body>
      <A HREF="01_top.html"><img class="back_btn" 
-     src="items/02_HOST-assets/back.png">
+     src="items/02_HOST-assets/back.png" id="backToTopBtn">
      </A>
 
      <!--ユーザー名入力フォーム-->
      <h1>ユーザー名を入力してください</h1>
      <p>※最大10文字</p>
      <form action="#" method="POST">
-     <input type="text" name="userName" maxlength="10" size="20">
+     <input type="text" name="userName" maxlength="10" size="20" id="guestUserName" >
      </form>
+
+
+     <!--ゲストのユーザー名を保存(部屋内でニックネームを重複チェックし、完全一致する場合はエラー。「すでに同じ名前の人がいます。名前を変更してください。」)-->
+     <p id="errorNameChouhuku" ></p>
+
 
      <!--ルームID入力フォーム-->
      <h1>ルームIDを入力してください</h1>
 
      <form action="#" method="GET">
-     <input type="text" name="roomId" maxlength="10" size="20">
-     <input type="submit" value="検索">
+     <input type="text" name="roomId" maxlength="10" size="20" id="roomNumberCheck1">
+     <input type="submit" value="検索" id="roomNumberCheck2">
      </form>
  
      <!--ルーム名は検索結果を表示-->
-     <p>検索結果...</p>
-     <p class="room_name">もりらのルーム</p>
+     <p id="roomNumberCheck3">検索結果...</p>
+     <p id="roomNumberCheck4" class="room_name">もりらのルーム</p>
 
      <!--このルームに入るボタン-->
      <a>
      <A HREF="04_room.html"><img class ="room-enter_btn02"
      href="kari" 
-     src="items/03_Guest-assets/room_enter_btn02.png">
+     src="items/03_Guest-assets/room_enter_btn02.png"
+     id="roomEnter">
      </a>
+
+
+    <script type="text/javascript" src="03_guestnode.js"></script>
 </body>
 
 </html>
