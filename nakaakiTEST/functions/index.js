@@ -31,3 +31,7 @@ app.get("/jikken", (request, response) => {
 // });
 
 exports.app = functions.https.onRequest(app);
+
+//URIを先に固めておく
+
+//必要な処理を全良描いていく。あとで各ページに分けていく。

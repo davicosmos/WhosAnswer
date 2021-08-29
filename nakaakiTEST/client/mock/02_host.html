@@ -33,16 +33,14 @@
         <input type="text"  id="hostNameImput" name="hostNameImput" maxlength="10" size="30%">
 
         <!--ルーム作成ボタン-->
-<!--    <a href="04_room.html"><img class ="room-create_btn02"-->
-
 <!--    ここで、ルーム作成のボタンを押したことをトリガーに、00_htmlManage.jsの02画面用の処理を走らせたい（未完成）-->
-        <img class ="room-create_btn02" id="htmlManage-call" src="items/02_HOST-assets/room_create_btn02.png" onclick="getHostName()"> 
-        
-        
-<!--    </a> -->
+        <img class ="room-create_btn02" id="htmlManage-call" src="items/02_HOST-assets/room_create_btn02.png"> 
+
+<!-- ホストが部屋を作成したのちに04ルーム画面に遷移。サーバのどんな処理の流れで画面遷移できるか相談必要。
+       <a href="04_room.html"><img class ="room-create_btn02"　 </a> -->
     </div>
     </form>
-    <script src="00_htmlManage.mjs"></script>
+    <script type="text/javascript" src="02_hostnode.js"></script>
 </body>
 
 </html>

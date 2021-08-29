@@ -1,33 +1,12 @@
 //ホストによるルーム作成画面の処理
 
-//htmlで入力されたデータを利用するため以下のファイルを参照する
-import getHostName from './00_htmlManage.js';
+//この行で入力フォームに書かれた名前を取得。
+let tottekitaHostName = document.getElementById('hostNameImput');
 
-//ホストユーザーにてルームを作成する処理のまとまり
-class createRoom{
-    constructor(){
+//この行でルームを作るボタンを押したときの処理。入力フォームの名前をサーバへ連携する必要がある。
+let roomCreateComplete = document.getElementById('htmlManage-call');
 
-        //htmlからホストネームの文字列を受け取る処理
-    //let hostName = getHostName;
-    
-    
-}
-};
-getHostName(); //受け取ったホストネームの確認
-
-
-//DBやりとりを司りし者クラスを呼び出す処理
-//ホストのユーザー名を保存+部屋IDを作成
-class callDbManage{
-
-    //未完成
-
-};
-
-
-//04の画面・処理を呼び出してhtmlへ返す処理
-class callPage04{
-
-    //未完成
-
-}
+roomCreateComplete.addEventListener('click', function() {
+alert("ホスト名を取得しました。取得した名前はこちら" + tottekitaHostName.value);
+console.log(tottekitaHostName.value);
+});

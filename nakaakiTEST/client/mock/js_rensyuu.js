@@ -1,4 +1,19 @@
 //JavaScriptのコードを実装
+
+//ランダム数字を生成
+  //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
+let maxNumRange = 5;
+
+  //2.ランダムな数字を生成
+let randomNum = parseInt(Math.random() * maxNumRange) + 1;
+
+  //3.ランダム生成された数字の検証
+console.log(randomNum);
+
+
+
+
+
 //文字の入力
 console.log("hello world");
 
@@ -500,3 +515,87 @@ console.log(`名前:${aniiimal.name}`);
 
 // 「年齢: 〇〇」となるように出力してください
 console.log(`年齢:${aniiimal.age}`);
+
+
+
+
+//console.log("hogehoge");
+console.log("ハロー、paizaラーニング");
+console.log("hello world")
+var player = "勇者";
+console.log(player);
+var randnum = parseInt(Math.random() *10) +1;
+console.log(randnum);
+var number = 100;
+console.log(number + 30);
+console.log(number);
+console.log(number + number);
+console.log(number % 3);
+ var number = 100;
+ var text = "hello" + "paiza";
+ console.log(number +30 );
+ console.log(text);
+ console.log(number + text);
+
+ var number = 2;
+if (number == 1){
+    console.log("すき");
+}else if (number == 2){
+    console.log("どちらでもない");
+}else{
+    console.log("嫌い");
+}
+
+var time = 13;
+if (time　< 12){
+    console.log("午前中");
+}else if (time == 12){
+    console.log("正午");
+}else if (time > 12){
+    console.log("午後");
+}
+
+var omikuji = parseInt(Math.random() *10) +1;
+if (omikuji ==1){
+    console.log("大吉");
+}else if (omikuji ==2){
+    console.log("中吉");
+}else if (omikuji <= 4){
+    console.log("小吉");
+}else if (omikuji <= 7){
+    console.log("凶");
+}else{
+    console.log("大凶");
+}
+
+var hit =parseInt(Math.random() *10) +1;
+if (hit < 6){
+    console.log("スライムに" + hit +"のダメージを与えた");
+}else{
+    console.log("スライムに100ダメージを与えた");
+}
+
+
+
+//テスト作成したものです。やっほー。
+// 西暦年から昭和年を求める
+//process.stdin.resume();
+process.stdin.setEncoding('utf8');
+
+var seireki = parseInt(Math.random() * 60) + 1970;
+//var seireki = 1910;
+process.stdout.write ("西暦" + seireki + "年は");
+
+// 西暦をもとに昭和・平成・令和の年次を判別して表示
+if(seireki >= 1925 & seireki <= 1988 ){
+    var showa = seireki - 1925;
+    console.log("昭和" + showa + "年です");
+}else if (seireki >= 1989 & seireki <= 2018 ){
+    var heisei = seireki - 1988;
+    console.log("平成" + heisei + "年です");
+}else if(seireki >= 2019){
+    var reiwa = seireki - 2018;
+    console.log("令和" + reiwa + "年です");
+}else{
+    console.log("昭和より前じゃん");
+}
