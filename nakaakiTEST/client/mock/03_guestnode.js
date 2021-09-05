@@ -68,3 +68,6 @@ let room_name = document.getElementById('roomNumberCheck4');
     room_name.addEventListener('click', function() {
         room_name.innerHTML='もりらルームでなくルナティスルームです。';
       });
+
+      
+export {tottekitaRoomID};
