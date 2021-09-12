@@ -3,7 +3,7 @@
 //質問のうち、「誰々のなになには何でしょう」形式を出題するときの文章を生成。
 //let quizSeisei = ;
 
-let quiz = [
+var quiz = [
     {
       quizID:"0",
       question: '夢が一つだけ叶うとしたら、何をお願いしますか',
@@ -96,24 +96,52 @@ let quiz = [
 //〜〜本当は、ここから下は、ゲームの都度つくられるけど、練習は決め打ちで書いておく〜〜
 
 //部屋 roomData　（ユーザーIDの保持の仕方は見直し必要）
-var fakeRoomData = [
-    {roomId:"000100",
-//     userId:"001","002","003","004","005","006"},
-    }]
+// function fakeRoomData() {
+//   return {
+//     roomId: "000100",
+//     hostName: "もりら"
+//   };
+// }
+
+// var fakeRoomData = 
+//     {roomId:"000100",
+//     hostName:"もりら",
+//     };
+
+function fakeRoomData() {
+  return {
+    roomId: "000100",
+  };
+};
+
 
 //ユーザーネーム userData
-var fakeUserData = [
-    {userName:"もりら", role:1, assign:0 , userId:"001" , roomId:"000100"},
-    {userName:"くろき", role:0, assign:1 , userId:"002" , roomId:"000100"},
-    {userName:"あらい", role:0, assign:0 , userId:"003" , roomId:"000100"},
-    {userName:"ナカムラアア", role:0, assign:0 , userId:"004" , roomId:"000100"},
-    {userName:"デイビス", role:0, assign:0 , userId:"005" , roomId:"000100"},
-    {userName:"キャベツ太朗", role:0, assign:0 , userId:"006" , roomId:"000100"},
+// var fakeUserData = [
+//     {userName:"もりら", role:1, assign:0 , userId:"001" , roomId:"000100"},
+//     {userName:"くろき", role:0, assign:1 , userId:"002" , roomId:"000100"},
+//     {userName:"あらい", role:0, assign:0 , userId:"003" , roomId:"000100"},
+//     {userName:"ナカムラアア", role:0, assign:0 , userId:"004" , roomId:"000100"},
+//     {userName:"デイビス", role:0, assign:0 , userId:"005" , roomId:"000100"},
+//     {userName:"キャベツ太朗", role:0, assign:0 , userId:"006" , roomId:"000100"},
 
-    {userName:"ほかのルームのホスト", role:1, assign:0 , userId:"007" , roomId:"000200"},
-    {userName:"ほかのルームのゲスト", role:0, assign:1 , userId:"008" , roomId:"000200"},
+//     {userName:"ほかのルームのホスト", role:1, assign:0 , userId:"007" , roomId:"000200"},
+//     {userName:"ほかのルームのゲスト", role:0, assign:1 , userId:"008" , roomId:"000200"},
 
-]
+// ]
+function fakeUserData() {
+  return [
+      {userName:"もりら", role:1, assign:0 , userId:"001" , roomId:"000100"},
+      {userName:"くろき", role:0, assign:1 , userId:"002" , roomId:"000100"},
+      {userName:"あらい", role:0, assign:0 , userId:"003" , roomId:"000100"},
+      {userName:"ナカムラアア", role:0, assign:0 , userId:"004" , roomId:"000100"},
+      {userName:"デイビス", role:0, assign:0 , userId:"005" , roomId:"000100"},
+      {userName:"キャベツ太朗", role:0, assign:0 , userId:"006" , roomId:"000100"},
+    
+      {userName:"ほかのルームのホスト", role:1, assign:0 , userId:"007" , roomId:"000200"},
+      {userName:"ほかのルームのゲスト", role:0, assign:1 , userId:"008" , roomId:"000200"},
+  ]
+};
+
 
 //回答 answer
 var fakeAnswer = [
@@ -129,7 +157,7 @@ var fakeAnswer = [
        "choiceID":"005", "answerText":"コンティオ"},
        {"roomID":"000100", "userID":"006",
        "choiceID":"006", "answerText":"ジャッカル"},
-]
+];
 
 //選択 choice (データの複数の持たせ方見直し必要)
 var fakeChoise = [
@@ -139,9 +167,4 @@ var fakeChoise = [
     {"roomID":"000100", "userID":"004", "choiceID":"005"},
     {"roomID":"000100", "userID":"005", "choiceID":"001"},
     {"roomID":"000100", "userID":"006", "choiceID":"002"}
-
-]
-
-
-//export {quiz, fakeRoomData, fakeUserData, fakeAnswer, fakeChoise};
-export {fakeUserData};
+];

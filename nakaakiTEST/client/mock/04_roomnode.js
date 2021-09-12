@@ -1,5 +1,5 @@
-import {tottekitaRoomID} from "./03_guestnode";
-import {fakeUserData} from "./fakeDB";
+//import {tottekitaRoomID} from "./03_guestnode";
+//import {fakeUserData} from "./fakeDB";
 
 
 //ホストとゲストで共通の機能

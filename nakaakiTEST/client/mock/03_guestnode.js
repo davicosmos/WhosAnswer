@@ -10,7 +10,9 @@
 //apiUrl;
 
 //ここから上はナカアキと相談
-
+let script = document.createElement('script'); //変数名は適当なものにでも
+script.src = "fakeDB.js"; //ファイルパス
+document.head.appendChild(script); //<head>に生成
 
 //ユーザー名の入力
 let tottekitaGuestUserName = document.getElementById('guestUserName');
@@ -18,27 +20,35 @@ let tottekitaGuestUserName = document.getElementById('guestUserName');
 let roomEnterBtn = document.getElementById('roomEnter');
 
 roomEnterBtn.addEventListener('click', function() {
-alert("ゲスト名を取得しました。取得した名前はこちらです。" + tottekitaGuestUserName.value);
+alert("ゲスト名を取得しました。あなたが設定した名前はこちらです。" + tottekitaGuestUserName.value);
 console.log(tottekitaGuestUserName.value);
 });
 
 
 //部屋検索
     //入力されたルームIDを取得する
-    let tottekitaRoomID = document.getElementById('roomNumberCheck1');
-
-    let roomKensakuBtn = document.getElementById('roomNumberCheck2');
-
-    let dbTotteitaHostName = "ホスト太郎";
+    let roomKensakuBtn = document.getElementById('roomNumberCheck2');　//検索ボタン
 
     roomKensakuBtn.addEventListener('click', function() {
-    alert("あんたが探していた部屋はこれだろ" + dbTotteitaHostName);
-    console.log(dbTotteitaHostName);
-    });
+
+    let tottekitaRoomID = document.getElementById('roomNumberCheck1');　//　入力フィールド
+
+    alert("あんたが探していた部屋はこれだろ" + tottekitaRoomID.value); //入力フィールドから取得した部屋番号を表示
 
     //入力されたルームIDをもとに、DBアクセスし、ホスト名を取得
+    // let dataTest = fakeRoomData();
+    // console.log(fakeRoomData);
+    // let  tottekitaHostName = dataTest.hostName;
+    let dataTest = fakeUserData();
+   
+     //この下のコードに、  element.roomId === tottekitaRoomID.value &&
+    let tottekitaHostName = dataTest.find(element =>  element.role === 1);
+   
 
     //ホスト名をもとにhtmlの「お友達がホスト」を書き換え
+    document.getElementById('roomNumberCheck4').innerHTML = tottekitaHostName.userName + "がホストのルーム";
+
+    });
 
 
 
@@ -64,10 +74,10 @@ axios.get(apiUrl+'/timestamp')
 
 
 //おためし2
-let room_name = document.getElementById('roomNumberCheck4');
-    room_name.addEventListener('click', function() {
-        room_name.innerHTML='もりらルームでなくルナティスルームです。';
-      });
+// // let room_name = document.getElementById('roomNumberCheck4');
+//     room_name.addEventListener('click', function() {
+//         room_name.innerHTML='もりらルームでなくルナティスルームです。';
+//       });
 
       
-export {tottekitaRoomID};
+//export {tottekitaRoomID};
