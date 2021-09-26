@@ -19,27 +19,24 @@ const fakeUserData =
 
 //ホストとゲストで共通の機能
 
-let goOutBtn = document.getElementById('goOut01');
- 
+let goOutBtn = document.getElementById('goOut01');　//退出ボタン 
 goOutBtn.addEventListener('click', function() {
-
-
   if(fakeUserData.role  == 1){
     //まずホストかどうか判定し、ホストの場合、DBからホストが消される
-    //※セッション情報をexpressで管理しておき、ユーザーネームと部屋番号の該当者箇所をDBから削除
+    //※セッション情報をexpressで管理しておき、ユーザーネームと部屋番号の該当者箇所をDBから削除[今後実装必要]
   
-  
+    
     //ゲストのうち、DBで先頭[0]になった人にホストフラグ1がつく
     fakeUserData[0].role = 1;
   
-    //画面01へ遷移する
-  
+    //画面01へ遷移する のをhtml側で実行
+
   }else{
   //ゲストの場合、DBからそのゲストが消される
-    //※セッション情報をexpressで管理しておき、ユーザーネームと部屋番号の該当者箇所をDBから削除
+    //※セッション情報をexpressで管理しておき、ユーザーネームと部屋番号の該当者箇所をDBから削除[今後実装必要]
   
   
-    //画面01へ遷移する
+    //画面01へ遷移する のをhtml側で実行
 
   }
 });
@@ -48,28 +45,22 @@ goOutBtn.addEventListener('click', function() {
 
 //ルーム画面で、ホストの名前をみんなに表示
 
-//まず、貼り付け先となるhtml内の箇所を指定する
-const $doc = document;
-const $roomHostNameBase = $doc.getElementById('roomHostName');
-let kokodetukauRoomID = tottekitaRoomID;
-
 //つぎに、ホストのユーザー名をDBから取得して、貼り付け先に貼り付ける
-const init = () => {
-    //どの部屋のホストなのかを特定し、そのホストのユーザー名を取得する
-    if(kokodetukauRoomID == fakeUserData.roomId && fakeUserData.role == 1){
-        console.log(fakeUserData.userName);
-             } ;
+
+window.addEventListener('pageshow', function() {
+
+  const $doc = document;
+  let $roomHostNameBase = $doc.getElementById('roomHostName');
+  let tottekitaHostName = "もりら";
+  $roomHostNameBase.innerHTML = tottekitaHostName + "のルーム";
+  
+}, false);
 
 
-    $roomHostNameBase.textContent = fakeUserData[role == 1].question;
-  };
 
-let roomHostNameHyouji = document.getElementById('roomHostName');
+//ホスト名をもとにhtmlの「お友達がホスト」を書き換え
 
-roomHostNameHyouji.addEventListener('onpageshow', function() {
-alert("ゲスト名を取得しました。取得した名前はこちらです。" + tottekitaGuestUserName.value);
-console.log(tottekitaGuestUserName.value);
-});
+
 
 
 
