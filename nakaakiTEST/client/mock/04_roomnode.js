@@ -2,6 +2,7 @@
 //import {fakeUserData} from "./fakeDB";
 
 
+
 //fakeDBのつもり。ベタガキした。あとで直す。
 const fakeUserData = 
    [
@@ -56,9 +57,56 @@ window.addEventListener('pageshow', function() {
   
 }, false);
 
+//つぎに、ルームのIDをDBから取得して、貼り付け先に貼り付ける
+window.addEventListener('pageshow', function() {
+
+  const $doc = document;
+  let $roomIdBase = $doc.getElementById('roomId');
+  let tottekitaRoomId = "000100"; //ベタガキでなくサーバ処理で名前を書き換える。
+  $roomIdBase.innerHTML = "ID:" + tottekitaRoomId;
+  
+}, false);
 
 
-//ホスト名をもとにhtmlの「お友達がホスト」を書き換え
+
+
+//ルームにいる人全員の名前を表示
+//DBの配列から要素を取得する
+
+const memberLen = fakeUserData.length;
+
+let n = 0;
+  while(n < memberLen){
+//    $result_02.textContent = quiz[randoms[n]].question + quiz[randoms[n]].correct + userAnswerData[n] + answerMatchList[n];
+    
+    // table要素を取得
+    let tableElem = document.getElementById('mamberTable');
+    
+    // tbody要素にtr要素（行）を最後に追加
+    let trElem = tableElem.tBodies[0].insertRow(-1);
+    
+    // td要素を追加
+
+    let i  = n;
+
+    //できそうでできない。分岐。
+    // const xxx = () => {
+    //   if(fakeUserData[i].role == 0){
+    //    "<img src = './items/04_room-assets/host_icon.png'>";
+    // }else{
+    //   "<img src = './items/04_room-assets/kick_icon.png'>"
+    // };
+
+    //ここでユーザー名と王冠画像と、Kick画像を表に入れて、一括表示。
+    let img = document.createElement('img');
+    img.src = './items/04_room-assets/host_icon.png';
+
+    trElem.insertCell(0).appendChild(document.createTextNode(fakeUserData[i].userName));
+    trElem.insertCell(1).appendChild(img);
+
+    n++;
+  }; 
+
 
 
 
