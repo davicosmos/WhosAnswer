@@ -80,7 +80,7 @@ let n = 0;
 //    $result_02.textContent = quiz[randoms[n]].question + quiz[randoms[n]].correct + userAnswerData[n] + answerMatchList[n];
     
     // table要素を取得
-    let tableElem = document.getElementById('mamberTable');
+    let tableElem = document.getElementById('memberTable');
     
     // tbody要素にtr要素（行）を最後に追加
     let trElem = tableElem.tBodies[0].insertRow(-1);
@@ -89,32 +89,50 @@ let n = 0;
 
     let i  = n;
 
-    //できそうでできない。分岐。
-    // const xxx = () => {
-    //   if(fakeUserData[i].role == 0){
-    //    "<img src = './items/04_room-assets/host_icon.png'>";
-    // }else{
-    //   "<img src = './items/04_room-assets/kick_icon.png'>"
-    // };
+    let img01 = document.createElement('img');
+    img01.src = './items/04_room-assets/host_icon.png';
 
+    let img02 = document.createElement('img');
+    img02.src = './items/04_room-assets/kick_icon.png';
+
+    const roleBunki = () => {
     //ここでユーザー名と王冠画像と、Kick画像を表に入れて、一括表示。
-    let img = document.createElement('img');
-    img.src = './items/04_room-assets/host_icon.png';
+    
+      if(fakeUserData[i].role == 1){
+        trElem.insertCell(1).appendChild(img01); //王冠
+      
+
+      }else{
+        trElem.insertCell(1).appendChild(img02);
+      
+    }
+  
+  };
 
     trElem.insertCell(0).appendChild(document.createTextNode(fakeUserData[i].userName));
-    trElem.insertCell(1).appendChild(img);
+    roleBunki();
+
+    // trElem.insertCell(2).appendChild(img02);
 
     n++;
+    
   }; 
 
 
+  //解散ボタン
+  let roomDismiss = document.getElementById('dismiss_btn');
+  roomDismiss.addEventListener('click', function() {
+    alert("部屋は粉々になった。"); 
+    console.log(roomDismiss);
+    });
 
 
 
 
-//ホスト専用の機能
 
-
-
-
-//ゲスト専用の機能
+  //はじめるボタン
+  let roomEnter = document.getElementById('roomEnter_btn');
+  roomEnter.addEventListener('click', function() {
+    alert("次のステージへ"); 
+    console.log(roomEnter);
+    });
