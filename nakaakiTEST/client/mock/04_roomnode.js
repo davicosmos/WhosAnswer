@@ -52,7 +52,7 @@ window.addEventListener('pageshow', function() {
 
   const $doc = document;
   let $roomHostNameBase = $doc.getElementById('roomHostName');
-  let tottekitaHostName = "もりら";
+  let tottekitaHostName = "もりら";　//ここの名前はDBから取れたものにするぞ！
   $roomHostNameBase.innerHTML = tottekitaHostName + "のルーム";
   
 }, false);
