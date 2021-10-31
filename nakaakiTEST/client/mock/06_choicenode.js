@@ -99,7 +99,6 @@ window.addEventListener('pageshow', function() {
 
 /*　06画面に全ての回答をリストで表示するべく、DBから回答を取得　*/
 
-
   //回答リストをランダムな順番に並べ替え
   function arrayShuffle(array) {
     for(let i = (choiceDB.length - 1); 0 < i; i--){
@@ -112,11 +111,17 @@ window.addEventListener('pageshow', function() {
       array[i] = array[r];
       array[r] = tmp;
     }
-    let returnCheck = array.map((obj) => obj.answer)
+    // let returnCheck = array.map((obj) => obj.answer)
     let result = '<ol id = "answerList" >';
-    for(const answer of returnCheck){
-        result = result+ '<li >' + answer + '<li/>'
-    }
+
+
+    for(const answer of array){
+      // let n = 0; //ここ書き換えた
+      // result = result+ '<li'  + '>' + answer + '<li/>'
+      result = result+ '<li > <input type ="radio" name ="answer"   id = "'  + answer.choiceID  + '" /> ' + answer.answer + ' <li/>' //ここ書き換えた
+
+      // count++
+    };
 
     result = result + '</ol>';
     return result;
@@ -127,3 +132,21 @@ window.addEventListener('pageshow', function() {
   const $doc = document;
   let $choiceList = $doc.getElementById('answerList');
   $choiceList.innerHTML =  arrayShuffle(choiceDB);
+  
+
+//回答をクリックした上で「決定」を押して次に進む
+let choiceDecideBtn = document.getElementById("end");
+choiceDecideBtn.addEventListener('click', function() {
+
+  let elements = document.getElementsByName('answer');
+  let len = elements.length;
+  let checkValue = '';
+  
+  for (let i = 0; i < len; i++){
+      if (elements.item(i).checked){
+          checkValue = elements.item(i).id;
+      }
+  }
+
+    alert("あなたが選択した回答はこちらです。" + checkValue);
+    });
