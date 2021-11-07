@@ -69,14 +69,13 @@ let DbUserNumber = fakeUserData.length;
 function resultArray(array) {
     for(let i = (choiceDB.length - 1); 0 < i; i--){
 
-        /*取得したIDをもとにユーザーの名前に変換する。*/
+        /*取得したIDをもとにユーザーの名前に変換する。*/ //いらないかも
         let choiceUserNameHyouji = choiceDB[i].choiceUserId;
+        let henngesurunamae;
         if(choiceUserNameHyouji === fakeUserData[i].userId){
-            choiceUserNameHyouji = fakeUserData[i].userName;
-            console.log(choiceUserNameHyouji);
+            henngesurunamae = fakeUserData[i].userName
+            console.log(henngesurunamae);
         };
-
-
         
     }
     // let returnCheck = array.map((obj) => obj.finalAnswer)
