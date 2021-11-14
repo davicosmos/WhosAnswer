@@ -1,5 +1,7 @@
+/* 結果発表 */
+
 //回答選択肢をDBからとってくる
-//fakeDBのつもり。ベタガキした。あとで直す。
+//fakeDBのつもり。ベタガキした。あとで直す。 ！！見直し要。
 const choiceDB = 
 [
     {
@@ -38,7 +40,7 @@ const choiceDB =
   ];
 
 
-//fakeDBのつもり。ベタガキした。あとで直す。
+//fakeDBのつもり。ベタガキした。あとで直す。　！！見直し要。
 const fakeUserData = 
 [
    {userName:"もりら", role:1, assign:0 , userId:"001" , roomId:"000100"},
@@ -52,7 +54,7 @@ const fakeUserData =
 //   リストが取れているか確認。
 console.log(fakeUserData);
 
-//DBのなかに何人のデータがあるかの長さを取得
+//DBのなかに何人のデータがあるかの長さを取得　！！見直し要。使ってないかも。
 let DbUserNumber = fakeUserData.length;
 
 
@@ -94,7 +96,7 @@ function resultArray(array) {
   };
 
 
-//誰がどの選択肢を選んだかのリストを画面に表示
+/* 誰がどの選択肢を選んだかのリストを画面に表示 */
 const $doc = document;
 let $resultList = $doc.getElementById('resultList');
 $resultList.innerHTML =  resultArray(choiceDB);

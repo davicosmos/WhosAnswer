@@ -1,8 +1,11 @@
+/* ルームに誰がいるかを見る画面 */
+
+
 //import {tottekitaRoomID} from "./03_guestnode";
 //import {fakeUserData} from "./fakeDB";
 
 
-
+/* 見直し要。！！　本当はベタガキでなくDBがあるはず。本来はここは不要。 */
 //fakeDBのつもり。ベタガキした。あとで直す。
 const fakeUserData = 
    [
@@ -18,9 +21,10 @@ const fakeUserData =
   console.log(fakeUserData);
 
 
-//ホストとゲストで共通の機能
+/* ホストとゲストで共通の機能 */
 
-let goOutBtn = document.getElementById('goOut01');　//退出ボタン 
+/* 退出ボタンを押した時の処理　見直し要！！ */
+let goOutBtn = document.getElementById('goOut01');
 goOutBtn.addEventListener('click', function() {
   if(fakeUserData.role  == 1){
     //まずホストかどうか判定し、ホストの場合、DBからホストが消される
@@ -33,9 +37,9 @@ goOutBtn.addEventListener('click', function() {
     //画面01へ遷移する のをhtml側で実行
 
   }else{
-  //ゲストの場合、DBからそのゲストが消される
+  /* ゲストの場合、DBからそのゲストが消される 見直し要。！！ */
     //※セッション情報をexpressで管理しておき、ユーザーネームと部屋番号の該当者箇所をDBから削除[今後実装必要]
-  
+    
   
     //画面01へ遷移する のをhtml側で実行
 
@@ -44,9 +48,8 @@ goOutBtn.addEventListener('click', function() {
 
 
 
-//ルーム画面で、ホストの名前をみんなに表示
-
-//つぎに、ホストのユーザー名をDBから取得して、貼り付け先に貼り付ける
+/* ルーム画面で、ホストの名前をみんなに表示 */
+//ホストのユーザー名をDBから取得して、貼り付け先に貼り付ける
 
 window.addEventListener('pageshow', function() {
 
@@ -57,7 +60,7 @@ window.addEventListener('pageshow', function() {
   
 }, false);
 
-//つぎに、ルームのIDをDBから取得して、貼り付け先に貼り付ける
+//つぎに、ルームのIDをDBから取得して、貼り付け先に貼り付ける　見直し要！！
 window.addEventListener('pageshow', function() {
 
   const $doc = document;
@@ -71,7 +74,7 @@ window.addEventListener('pageshow', function() {
 
 
 //ルームにいる人全員の名前を表示
-//DBの配列から要素を取得する
+//DBの配列から要素を取得する　見直し要！！
 
 const memberLen = fakeUserData.length;
 
@@ -119,7 +122,7 @@ let n = 0;
   }; 
 
 
-  //解散ボタン
+  /* 解散ボタン */
   let roomDismiss = document.getElementById('dismiss_btn');
   roomDismiss.addEventListener('click', function() {
     alert("部屋は粉々になった。"); 
@@ -130,7 +133,7 @@ let n = 0;
 
 
 
-  //はじめるボタン
+  /* はじめるボタン */
   let roomEnter = document.getElementById('roomEnter_btn');
   roomEnter.addEventListener('click', function() {
     alert("次のステージへ"); 

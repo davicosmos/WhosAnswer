@@ -1,5 +1,6 @@
-//ホストによるルーム作成画面の処理
+/* ホストによるルーム作成画面の処理 */
 
+/* ホストのユーザー名を入力し、ルームを作るボタンを押下 */
 //この行で入力フォームに書かれた名前を取得。
 let tottekitaHostName = document.getElementById('hostNameImput');
 

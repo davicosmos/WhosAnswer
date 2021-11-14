@@ -1,3 +1,7 @@
+/* ゲスト向けの画面。ホストが作成したルームに入るための操作を行う。 */
+
+/* いらなければ削除。同期・非同期をやりたかったはず。　！！ */
+
 //別ファイルをインポート
 //import apiUrl from './00_htmlManage.js';
 //const apiUrl = 'https://us-central1-whosanswer.cloudfunctions.net/app';
@@ -9,12 +13,12 @@
 //サーバとの通信でつかうURL
 //apiUrl;
 
-//ここから上はナカアキと相談
+//DBを読み込みたい。（見直し要　！！）
 let script = document.createElement('script'); //変数名は適当なものにでも
 script.src = "fakeDB.js"; //ファイルパス
 document.head.appendChild(script); //<head>に生成
 
-//ユーザー名の入力
+/* ゲストが使う個々のユーザー名の入力 　！！見直し要。ユーザーデータを書き込みに行きたい。*/
 let tottekitaGuestUserName = document.getElementById('guestUserName');
 
 let roomEnterBtn = document.getElementById('roomEnter');
@@ -25,8 +29,9 @@ console.log(tottekitaGuestUserName.value);
 });
 
 
-//部屋検索
-    //入力されたルームIDを取得する
+/* 部屋に入る */
+    /* ホストから聞いたルームIDを検索ボタンに入力する */ 
+    //入力されたルームIDを取得する　見直し要。！！　ルームをDBから探せなくてはならない。
     let roomKensakuBtn = document.getElementById('roomNumberCheck2');　//検索ボタン
 
     roomKensakuBtn.addEventListener('click', function() {
@@ -53,7 +58,7 @@ console.log(tottekitaGuestUserName.value);
 
 
 
-//ここから下は、練習なので削除可能。
+/* ここから下は、練習なので削除可能。　！！ */
 //おためし（イベントオンクリック）
 let btn = document.getElementById('roomNumberCheck2');
  

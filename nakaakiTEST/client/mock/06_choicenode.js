@@ -1,5 +1,7 @@
+/* 誰の回答か選択する画面 */
+
 //回答選択肢をDBからとってくる
-//fakeDBのつもり。ベタガキした。あとで直す。
+//fakeDBのつもり。ベタガキした。あとで直す。　見直し要！！
 const choiceDB = 
 [
     {
@@ -36,7 +38,7 @@ const choiceDB =
   console.log(choiceDB[1].answer);
 
 
-//あとでDBとつながり、かつ、ランダムで名前だけ取ってこれるようになったら不要。
+//あとでDBとつながり、かつ、ランダムで名前だけ取ってこれるようになったら不要。　見直し要！！
 //   const fakeUserNameList = 
 //    [
 //   {userName:"あらい"},
@@ -48,7 +50,7 @@ const choiceDB =
 // ];
 
 
-//fakeDBのつもり。ベタガキした。あとで直す。
+//fakeDBのつもり。ベタガキした。あとで直す。　見直し要！！
 const fakeUserData = 
    [
       {userName:"もりら", role:1, assign:0 , userId:"001" , roomId:"000100"},
@@ -134,7 +136,7 @@ window.addEventListener('pageshow', function() {
   $choiceList.innerHTML =  arrayShuffle(choiceDB);
   
 
-//回答をクリックした上で「決定」を押して次に進む
+/* 回答をクリックした上で「決定」を押して次に進む */
 let choiceDecideBtn = document.getElementById("end");
 choiceDecideBtn.addEventListener('click', function() {
 

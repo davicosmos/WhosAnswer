@@ -1,8 +1,8 @@
 
-
+/* 出題画面 */
 
 //質問内容をDBからとってくる
-//fakeDBのつもり。ベタガキした。あとで直す。
+//fakeDBのつもり。ベタガキした。あとで直す。　見直し要！！
 const quiz = 
 [
     {
@@ -21,7 +21,7 @@ const quiz =
   console.log(quiz[1].question);
 
 
-//つぎに、出題するクイズをDBから取得して、貼り付け先に貼り付ける
+//つぎに、出題するクイズをDBから取得して、貼り付け先に貼り付ける　見直し要！！
 
 window.addEventListener('pageshow', function() {
 
