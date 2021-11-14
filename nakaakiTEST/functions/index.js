@@ -1,12 +1,14 @@
 /* eslint-disable max-len */
-// import * as api from 'Controllers';
+// const top = require('./controllers/01_top');
+// const hostnode = require('./controllers/02_hostnode');
+const guestnode = require('./controllers/03_guestnode');
+// const roomnode = require('./controllers/04_roomnode');
+// const questionnode = require('./controllers/05_questionnode');
+// const choicenode = require('./controllers/06_choicenode');
+// const resultnode = require('./controllers/07_resultnode');
 
+// functions有効化
 const functions = require("firebase-functions");
-
-//  firebase設定
-const admin = require("firebase-admin");
-admin.initializeApp(functions.config().firebase);
-const fireStore = admin.firestore();
 
 //  express設定
 const cors = require("cors");
@@ -14,24 +16,27 @@ const express = require("express");
 const app = express();
 app.use(cors({origin: true}));
 
-// ここにルーティングを書いていく
-app.get("/timestamp", (request, response, next) => {
-  response.send(`${Date.now()}`);
-});
-app.get("/jikken", (request, response) => {
-  fireStore.collection("test01").doc("sPCKM1QfNZLbBmcgomEV").get().then((doc) => {
-    //  data()でドキュメントがとれる
-    const document = doc.data();
-    //  document.フィールド名でデータがとれる
-    response.send(document);
-  });
-});
-// app.get("/dir", (request, response) => {
-//     response.send(api);
-// });
+// ルーティング
+// 01_top
+//
+
+// 02_hostnode
+//
+
+// 03_guestnode.js
+app.get("/get_room_by_code", guestnode.getRoomByCode);
+app.get("/enter_room", guestnode.enterRoom);
+
+// 04_roomnode
+//
+
+// 05_questionnode
+//
+
+// 06_choicenode
+//
+
+// 07_resultnode
+//
 
 exports.app = functions.https.onRequest(app);
-
-//URIを先に固めておく
-
-//必要な処理を全良描いていく。あとで各ページに分けていく。
