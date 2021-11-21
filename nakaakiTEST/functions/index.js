@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+// コンロトーラーのインポート(作ったらコメント解放)
 // const top = require('./controllers/01_top');
 // const hostnode = require('./controllers/02_hostnode');
 const guestnode = require('./controllers/03_guestnode');
@@ -24,7 +25,7 @@ app.use(cors({origin: true}));
 //
 
 // 03_guestnode.js
-app.get("/get_room_by_code", guestnode.getRoomByCode);
+app.get("/get_room_by_code/:room_id", guestnode.getRoomByCode);
 app.get("/enter_room", guestnode.enterRoom);
 
 // 04_roomnode

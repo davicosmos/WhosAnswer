@@ -32,50 +32,50 @@ console.log(tottekitaGuestUserName.value);
 /* 部屋に入る */
     /* ホストから聞いたルームIDを検索ボタンに入力する */ 
     //入力されたルームIDを取得する　見直し要。！！　ルームをDBから探せなくてはならない。
-    let roomKensakuBtn = document.getElementById('roomNumberCheck2');　//検索ボタン
+    // let roomKensakuBtn = document.getElementById('roomNumberCheck2');　//検索ボタン
 
-    roomKensakuBtn.addEventListener('click', function() {
+    // roomKensakuBtn.addEventListener('click', function() {
 
-    let tottekitaRoomID = document.getElementById('roomNumberCheck1');　//　入力フィールド
+    // let tottekitaRoomID = document.getElementById('roomNumberCheck1');　//　入力フィールド
 
-    alert("あんたが探していた部屋はこれだろ" + tottekitaRoomID.value); //入力フィールドから取得した部屋番号を表示
+    // alert("あんたが探していた部屋はこれだろ" + tottekitaRoomID.value); //入力フィールドから取得した部屋番号を表示
 
-    //入力されたルームIDをもとに、DBアクセスし、ホスト名を取得
-    // let dataTest = fakeRoomData();
-    // console.log(fakeRoomData);
-    // let  tottekitaHostName = dataTest.hostName;
-    let dataTest = fakeUserData();
+    // //入力されたルームIDをもとに、DBアクセスし、ホスト名を取得
+    // // let dataTest = fakeRoomData();
+    // // console.log(fakeRoomData);
+    // // let  tottekitaHostName = dataTest.hostName;
+    // let dataTest = fakeUserData();
    
-     //この下のコードに、  element.roomId === tottekitaRoomID.value &&
-    let tottekitaHostName = dataTest.find(element =>  element.role === 1);
+    //  //この下のコードに、  element.roomId === tottekitaRoomID.value &&
+    // let tottekitaHostName = dataTest.find(element =>  element.role === 1);
    
 
-    //ホスト名をもとにhtmlの「お友達がホスト」を書き換え
-    document.getElementById('roomNumberCheck4').innerHTML = tottekitaHostName.userName + "がホストのルーム";
+    // //ホスト名をもとにhtmlの「お友達がホスト」を書き換え
+    // document.getElementById('roomNumberCheck4').innerHTML = tottekitaHostName.userName + "がホストのルーム";
 
-    });
+    // });
 
 
 
 
 /* ここから下は、練習なので削除可能。　！！ */
 //おためし（イベントオンクリック）
-let btn = document.getElementById('roomNumberCheck2');
+// let btn = document.getElementById('roomNumberCheck2');
  
-    btn.addEventListener('click', function() {
-      // GET通信
-axios.get(apiUrl+'/timestamp')
+//     btn.addEventListener('click', function() {
+//       // GET通信
+// axios.get(apiUrl+'/timestamp')
 
-// thenで成功した場合の処理をかける
-.then(response => {
-    console.log('status:', response.status); // 200
-    console.log('body:', response.data);     // response body.
+// // thenで成功した場合の処理をかける
+// .then(response => {
+//     console.log('status:', response.status); // 200
+//     console.log('body:', response.data);     // response body.
 
-// catchでエラー時の挙動を定義する
-}).catch(err => {
-    console.log('err:', err);
-});
-    });
+// // catchでエラー時の挙動を定義する
+// }).catch(err => {
+//     console.log('err:', err);
+// });
+//     });
 
 
 //おためし2
@@ -83,6 +83,28 @@ axios.get(apiUrl+'/timestamp')
 //     room_name.addEventListener('click', function() {
 //         room_name.innerHTML='もりらルームでなくルナティスルームです。';
 //       });
+
+/* ここから下が中村作成　！！ */
+
+/* 検索ボタンの検索処理のイベント */
+let search_button = document.getElementById('roomNumberCheck2');
+search_button.addEventListener('click', function() {
+    let room_id = document.getElementById('roomNumberCheck1').value;
+    // ルームIDからルーム名を取得
+    axios.get(API_URL + GUEST_NODE.getRoomByCode + '/' + room_id)
+        .then((res) => {
+            let room_msg = 'ルームがありませんでした';
+            if (res.data) room_msg = res.data + 'がホストのルーム';
+            // 表示個所を書き換え
+            let room_disp = document.getElementById('roomNumberCheck4');
+            room_disp.innerHTML = room_msg;
+        });
+});
+
+
+/* このルームに入るの処理 */
+
+
 
       
 //export {tottekitaRoomID};

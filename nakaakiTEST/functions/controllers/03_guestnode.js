@@ -6,8 +6,8 @@ const fireStore = require("./firestore");
 //https://www.wakuwakubank.com/posts/723-firebase-firestore-query/
 //https://firebase.google.com/docs/firestore/query-data/queries?hl=ja
 
-exports.getRoomByCode = function (request, response) {
-  fireStore.collection(MODEL.ROOM.TABLE_NAME).doc("morira_room").get().then((snapShot) => {
+exports.getRoomByCode = function (request, response) {  
+  fireStore.collection(MODEL.ROOM.TABLE_NAME).doc(request.params.room_id).get().then((snapShot) => {
     let result = null;
     if (snapShot) {
       result = snapShot.get("name");

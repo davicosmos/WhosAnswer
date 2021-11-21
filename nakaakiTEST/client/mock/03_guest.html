@@ -37,8 +37,8 @@
      <h1>ルームIDを入力してください</h1>
 
      <form action="#" method="GET">
-     <input type="text" name="roomId" maxlength="10" size="20" id="roomNumberCheck1">
-     <input type="submit" value="検索" id="roomNumberCheck2">
+     <input type="text" name="roomId" maxlength="20" size="20" id="roomNumberCheck1">
+     <button id="roomNumberCheck2">検索</button>
      </form>
  
      <!--ルーム名は検索結果を表示-->
@@ -55,6 +55,12 @@
 
      <script type="text/javascript" src="fakeDB.js"></script>
      <script type="text/javascript" src="03_guestnode.js"></script>
+    <!--axiosをCDNでインポート-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--設定用jsファイル-->
+    <script type="text/javascript" src="./js/settings.js"></script>
+    <!--APIリストjsファイル-->
+    <script type="text/javascript" src="./js/api.js"></script>
 </body>
 
 </html>
