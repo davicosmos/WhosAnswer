@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+
+
 
 /*謎のmember
 .member {
@@ -18,5 +21,48 @@
 body {
     color: white;
     font-size: 120%;
-    background-color: #92DB5E;
+    background-color: #5edb8d;
+}
+
+.questionTitle {
+    font-family: 'DotGothic16', sans-serif;
+    width: 170px;               /* 幅指定 */
+    height: 50px;              /* 高さ指定 */
+    background-color: #f06cda;     /* 背景色指定 */
+    border-radius: 100px;        /* 角丸指定 */
+    margin-right: auto;
+    margin-left : auto;
+    text-align: center
+}
+
+.titlecontainer {
+    font-family: 'DotGothic16', sans-serif;
+    width: 600px;               /* 幅指定 */
+    height: 200px;              /* 高さ指定 */
+    border: solid 2px #f06cda;     /* 枠線指定 */
+    background-color: #e3f3d7;     /* 背景色指定 */
+    border-radius: 10px;        /* 角丸指定 */
+    margin-right: auto;
+    margin-left : auto;
+    color: black;
+    font-size: 150%;
+
+}
+
+.answer {
+    width: 600px;               /* 幅指定 */
+    height: 200px;              /* 高さ指定 */
+    display: block; /* ブロック化する */
+    margin-top: 60px; /* ブロック化されたものついての位置を調整する */
+    margin-right: auto; /* ブロック化されたものついての位置を調整する */
+    margin-left : auto; /* ブロック化されたものついての位置を調整する */
+    margin-bottom: 20px; /* ブロック化されたものついての位置を調整する */
+}
+
+.room-enter_btn02 {
+    display: block; /* ブロック化する */
+    margin-top: 40px; /* ブロック化されたものついての位置を調整する */
+    margin-right: auto; /* ブロック化されたものついての位置を調整する */
+    margin-left : auto; /* ブロック化されたものついての位置を調整する */
+    margin-bottom: 20px; /* ブロック化されたものついての位置を調整する */
 }
