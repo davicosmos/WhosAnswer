@@ -120,7 +120,7 @@ window.addEventListener('pageshow', function() {
     for(const answer of array){
       // let n = 0; //ここ書き換えた
       // result = result+ '<li'  + '>' + answer + '<li/>'
-      result = result+ '<li > <input type ="radio" name ="answer"   id = "'  + answer.choiceID  + '" /> ' + answer.answer + ' <li/>' //ここ書き換えた
+      result = result + '<li > <input type ="radio" class="radiobutton" name ="answer"   id = "'  + answer.choiceID  + '" /> <label for="'  + answer.choiceID  + '">' + answer.answer + '</label> <li/>' //ここ書き換えた
 
       // count++
     };
