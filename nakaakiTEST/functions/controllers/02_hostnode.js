@@ -6,10 +6,11 @@ const fireStore = require("./firestore");
 //https://www.wakuwakubank.com/posts/723-firebase-firestore-query/
 //https://firebase.google.com/docs/firestore/query-data/queries?hl=ja
 
-exports.add_room = async function (request, response) {  
+exports.add_room = async function (request, response) {
+  const mojiretsu = new Date().getTime().toString(16);
     try {
-      const rooom = fireStore.collection(MODEL.ROOM.TABLE_NAME).doc(request.body.room_code);
-      await rooom.set({name:request.body.room_code});
+      const rooom = fireStore.collection(MODEL.ROOM.TABLE_NAME).doc(mojiretsu);
+      await rooom.set({name:request.body.owner_name});
         // await rooom.set({name:request.body.room_name});
         response.send(true);
     } catch (err) {
