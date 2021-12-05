@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // コンロトーラーのインポート(作ったらコメント解放)
 // const top = require('./controllers/01_top');
-// const hostnode = require('./controllers/02_hostnode');
+const hostnode = require('./controllers/02_hostnode');
 const guestnode = require('./controllers/03_guestnode');
 // const roomnode = require('./controllers/04_roomnode');
 // const questionnode = require('./controllers/05_questionnode');
@@ -22,7 +22,7 @@ app.use(cors({origin: true}));
 //
 
 // 02_hostnode
-//
+app.post("/add_room", hostnode.add_room);
 
 // 03_guestnode.js
 app.get("/get_room_by_code/:room_id", guestnode.getRoomByCode);
