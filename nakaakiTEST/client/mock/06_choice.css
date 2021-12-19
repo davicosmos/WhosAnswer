@@ -18,6 +18,7 @@
   label {
     background-color: #e3f3d7;
     padding: 10px 20px;
+    border-radius: 100px;        /* 角丸指定 */
   }
   .radiobutton:checked + label {
     background-color: pink;
@@ -72,14 +73,6 @@
     margin-left : auto;
 }
 
-/*モーダルキャンセルボタン設定*/
-.modal_close {
-    position: absolute;
-    font-size:80px;
-    right:5%;
-    top:0%;
-    cursor:pointer;
-}
 
 /*設定ボタン　marginで余白*/
 .config {
@@ -104,3 +97,12 @@ body {
   }
 
 
+/*モーダルキャンセルボタン設定
+.modal_close {
+  position: absolute;
+  font-size:80px;
+  right:5%;
+  top:0%;
+  cursor:pointer;
+}
+*/

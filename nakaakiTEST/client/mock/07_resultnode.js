@@ -87,7 +87,7 @@ function resultArray(array) {
     let i = 0;
     for(const finalAnswer of array){
 
-    result = result+ '<li > ' + finalAnswer.answer +  choiceDB[i].choiceUserId +  fakeUserData[i].userName +  ' <li/>'
+    result = result+ '<li class="list_test"> ' + finalAnswer.answer +  choiceDB[i].choiceUserId +  fakeUserData[i].userName +  ' <li/>'
     i++;
     };
 
