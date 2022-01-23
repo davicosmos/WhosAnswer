@@ -1,5 +1,35 @@
 @charset "UTF-8";
 
+/*リストの先頭マークを任意の画像に変える*/
+ol{
+    list-style:none;
+  }
+
+ol li{
+    background:url(./items/07_result-assets/star_mark.png) no-repeat 0 0;
+    background-size:auto 20px;
+    padding-left: 30px;
+}
+
+
+
+/*スクロールバー作成*/
+.box{
+    height: 400px;
+    width: 45%;
+    margin-top:5%;
+    margin-bottom:5%;
+  }
+
+.scroll {
+     /*overflow: scroll;*/
+     overflow-y:scroll;
+     
+}
+.scroll::-webkit-scrollbar{height:10px;}/*バーの太さ*/
+.scroll::-webkit-scrollbar-track{background:#afeeee;}/*バーの背景色*/
+.scroll::-webkit-scrollbar-thumb{background:#3cb371;}/*バーの色*/
+
 /*回答リスト範囲内設定　marginで余白*/
 .answer_list {
      height: 600px;

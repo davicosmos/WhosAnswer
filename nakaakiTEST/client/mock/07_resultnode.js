@@ -8,33 +8,39 @@ const choiceDB =
         quizID: 1,
         choiceID: 1,
         answer:"きみといつも一緒さ",
-        choiceUserId:""
+        choiceUserId:"",
+        correctFlag:"0"
     }, {
         quizID: 1,
         choiceID: 2,
         answer:"いつでもPS4さ",
-        choiceUserId:["001","003"]
+        choiceUserId:["001","003"],
+        correctFlag:"1"
     },{
         quizID: 1,
         choiceID: 3,
         answer:"サラマンダー",
-        choiceUserId:["005","002"]
+        choiceUserId:["005","002"],
+        correctFlag:"0"
     },
     {
         quizID: 1,
         choiceID: 4,
         answer:"あああ",
-        choiceUserId:""
+        choiceUserId:"",
+        correctFlag:"0"
     }, {
         quizID: 1,
         choiceID: 5,
         answer:"いいい",
-        choiceUserId:["004"]
+        choiceUserId:["004"],
+        correctFlag:"0"
     },{
         quizID: 1,
         choiceID: 6,
         answer:"ううう",
-        choiceUserId:["006"]
+        choiceUserId:["006"],
+        correctFlag:"0"
     }
 
   ];
@@ -87,13 +93,15 @@ function resultArray(array) {
     let i = 0;
     for(const finalAnswer of array){
 
-    result = result+ '<li class="list_test"> ' + finalAnswer.answer +  choiceDB[i].choiceUserId +  fakeUserData[i].userName +  ' <li/>'
+    result = result+ '<li class="list_test"> ' + finalAnswer.answer +  choiceDB[i].choiceUserId +  fakeUserData[i].userName + choiceDB[i].correctFlag + ' <li/>'
     i++;
     };
 
     result = result + '</ol>';
     return result;
   };
+
+/* HTML上にどれが正解かを表示するために以下の文言を送る */
 
 
 /* 誰がどの選択肢を選んだかのリストを画面に表示 */
