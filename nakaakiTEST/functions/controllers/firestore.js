@@ -5,7 +5,7 @@ const serviceAccount = require("../whosanswer-firebase-adminsdk-avvq9-346b289d62
 // admin.initializeApp();
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    // databaseURL: 'https://<DATABASE_NAME>.firebaseio.com'
+    databaseURL: 'https://whosanswer.firebaseio.com'
 });
 const fireStore = admin.firestore();
 
