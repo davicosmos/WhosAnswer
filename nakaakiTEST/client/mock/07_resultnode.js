@@ -102,6 +102,12 @@ function resultArray(array) {
   };
 
 /* HTML上にどれが正解かを表示するために以下の文言を送る */
+window.addEventListener('pageshow', function() {
+    const $doc = document;
+    let $resultShow = $doc.getElementById('result_happyou');
+    $resultShow.innerHTML = ("正解は･･････xxx番の回答であるyyyでした！おつおつ！");
+}, false);
+
 
 
 /* 誰がどの選択肢を選んだかのリストを画面に表示 */
