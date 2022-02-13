@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/*CSS疑似空間*/
+.content {
+    background-color: #92DB5E; color: rgb(255, 255, 255);
+} 
+
+/*文字色　文字サイズ　背景色*/
+body {
+    color: white;
+    font-size: 120%;
+    background-color: #92DB5E;
+}

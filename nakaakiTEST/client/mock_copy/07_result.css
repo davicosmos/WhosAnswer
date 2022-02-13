@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/*リストの先頭マークを任意の画像に変える*/
+/*ol li{
+ol{
+    list-style:none;
+  }
+
+    background:url(./items/07_result-assets/star_mark.png) no-repeat 0 0;
+    background-size:auto 20px;
+    padding-left: 30px;
+}*/
+
+
+
+/*スクロールバー作成*/
+.box{
+    height: 400px;
+    width: 45%;
+    margin-top:5%;
+    margin-bottom:5%;
+  }
+
+.scroll {
+     /*overflow: scroll;*/
+     overflow-y:scroll;
+     
+}
+.scroll::-webkit-scrollbar{height:10px;}/*バーの太さ*/
+.scroll::-webkit-scrollbar-track{background:#afeeee;}/*バーの背景色*/
+.scroll::-webkit-scrollbar-thumb{background:#3cb371;}/*バーの色*/
+
+/*回答リスト範囲内設定　marginで余白*/
+.answer_list {
+     height: 600px;
+     width: 90%;
+     overflow-y: scroll;
+     margin-top:5%;
+     margin-bottom:5%;
+}
+
+.resultList {
+    list-style:  none;  /* デフォルトのアイコンを消す */
+    margin:  0;         /* デフォルト指定上書き */
+    padding: 0;         /* デフォルト指定上書き */
+}
+ 
+.list_test:before {
+    content:  "";     /* 空の要素作成 */
+    width: 20px;                /* 幅指定 */
+    height: 20px;               /* 高さ指定 */
+    display:  inline-block;     /* インラインブロックにする */
+    background-color: #0074bf;  /* 背景色指定 */
+    position:  relative;        /* 位置調整 */
+    top: 3px;                   /* 位置指定 */
+    border-radius:  50%;        /* 要素を丸くする */
+    margin-right: 5px;          /* 余白指定 */
+}
+ 
+.list_test {
+    padding:  10px;             /* 余白指定 */
+    background-color:  #65ace4; /* 背景色指定 */
+    border-radius:  10px;       /* 角丸指定 */
+    margin-bottom: 5px;         /* 要素と要素の間指定 */
+    color: #fff;                /* 文字色指定 */
+    font-size:  20px;           /* 文字サイズ指定 */
+}
+
+/*CSS疑似空間*/
+.content {
+    background-color: #84E0DC;
+    color: rgb(255, 255, 255);
+} 
+
+/*文字色　文字サイズ　背景色*/
+body {
+    color: white;
+    font-size: 120%;
+    background-color: #84E0DC;
+}
+
+/*つづけるボタン　marginで余白*/
+.decision_btn{
+    display:block;
+    margin-bottom: 5%;
+
+}
+
+/*モーダル設定*/
+.modal {
+    position: absolute;
+    top: 10%;
+    bottom:10%;
+    left: 7%;
+    background-color: #979596;
+    padding: 20px 0 40px;
+    width:85%;
+    border: solid 8px #665262;
+    height: 50%;
+    text-align: center;
+    display: none;
+}
+
+/*モーダル疑似空間*/
+.modal_content {
+    width:80%;
+    margin:0 auto;
+    margin-top:25%;
+}
+
+/*モーダル内テキストサイズ　カラー*/
+.modal_text {
+    font-size: 14px;
+    color: #0e0d0d;
+}
+
+/*いいえボタン　marginで余白*/
+.no_btn {
+    margin-top: 15%;
+}
+
+/*モーダル内キャンセルボタン*/
+.close_btn {
+    position: absolute;
+    font-size:80px;
+    right:5%;
+    top:0%;
+    cursor:pointer;
+}
+
+/*リンクボタンのアンダーバーを消す*/
+a { text-decoration: none; }

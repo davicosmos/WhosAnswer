@@ -1,0 +1,74 @@
+<!--Htmlを実装
+    VSCodeの拡張機能「HTML PREVIEW」をインストールて、
+    HTMLファイルを開いた状態で以下操作にて表示。
+    Mac：Cmd + K → V
+　　Windows：Ctrl + K → V
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--画面外設定-->
+<head>
+    <meta charset="utf-8">
+    <title>HOST画面</title>
+    <!--CSSの適用場所指定-->
+    <link rel="stylesheet" href="06_choice.css">
+    <!--モーダルのためのJqueryの適用-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<!--中身の設定-->
+<body>
+     <!--モーダル内設定-->
+     <div class="modal_wrapper">
+          <div class="modal" id="config_modal">
+               <!--モーダルをキャンセル-->
+               <!--<div class="modal_close">×</div>モーダルのバツボタンを撤去したので不要なはず。要る場合は戻す。-->
+               <div class="modal_content">
+                    <!--選択終了させる-->
+                    <a href="07_result.html"><img class="select_end_btn" src="items/06_answer-assets/select_end_btn.png"></a>
+                    <p class="modal_text">回答選択を強制的に終了させ、正解画面に進めます。<br>選択を終了していないユーザーは結果に反映されません。</p>
+                    <!--ルームを解散する-->
+                    <!--最後いらなくなったらこの行だけ削除。<a href="01_top.html"><img class="room_dismiss_btn" id="room_dismiss_btn" src="items/06_answer-assets/room_dismiss_btn.png" ></a>-->
+                    <img class="room_dismiss_btn" id="room_dismiss_btn" src="items/06_answer-assets/room_dismiss_btn.png" ></a>
+                    <p class="modal_text">ゲームを中断してルームを解散します。</p>
+               </div>
+          </div>
+     </div>
+     
+     <!--問題表示-->
+     <h1 id= "choiceSareruMemberName" >もりらさんの回答はどれ</h1>
+
+     <!--回答一覧-->
+     <div class="answer_list">
+          <div class="content">
+          <ol id = "answerList" >
+               <li >ここは回答選択肢
+
+               </li>
+
+          </ol>
+     </div>
+     </div>
+     
+     <!--決定ボタン-->
+     <a>
+          <A HREF="07_result.html"><img class ="decision_btn"
+          href="kari" 
+          src="items/06_answer-assets/decision_btn.png" id="end" >
+     </a>
+
+     <!--設定ボタン-->
+     <div class=fotter>
+          <a>
+               <img class ="config"
+               id ="modal-show"
+               href="kari" 
+               src="items/06_answer-assets/config_icon.png">
+          </a>
+     </div>
+<script src="06_choicenode.js"></script>
+<script src="06_script.js"></script>
+</body>
+
+</html>

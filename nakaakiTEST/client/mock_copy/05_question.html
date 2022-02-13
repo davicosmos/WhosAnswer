@@ -1,0 +1,56 @@
+<!--Htmlを実装
+    VSCodeの拡張機能「HTML PREVIEW」をインストールて、
+    HTMLファイルを開いた状態で以下操作にて表示。
+    Mac：Cmd + K → V
+　　Windows：Ctrl + K → V
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--画面外設定-->
+<head>
+    <meta charset="utf-8">
+    <title>HOST画面</title>
+    <!--CSSの適用場所指定-->
+
+    <link rel="stylesheet" href="05_question.css">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+
+
+</head>
+
+<!--中身の設定-->
+<body>
+     <!--お題の表示-->
+     <div class=container>
+          <h1 class = questionTitle >お題</h1>
+          <div class=titlecontainer id= "quizSyutsudai">
+               <p>ここに問題を出題するよ</p>
+          </div>
+
+          <!--入力フォーム -->
+          <form action="#" method="POST">
+               <textarea class="answer" maxlength="140" id= "answerInput"></textarea>
+          </form>
+           <!--エラー表示設定-->
+           <!--
+          <p class=info>他のユーザーの回答と重複しています</p>
+          -->
+
+          </div>
+     </div>
+
+     <a>
+          <!--回答するボタン-->
+          <A HREF="06_choice.html"><img class ="room-enter_btn02"
+          href="kari" 
+          src="items/05_question-assets/answer_btn.png" id="answerInputCheck">
+          </a>
+
+          <script type="text/javascript" src="05_questionnode.js"></script>
+</body>
+
+</html>
