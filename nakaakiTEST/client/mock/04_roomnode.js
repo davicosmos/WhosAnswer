@@ -65,11 +65,12 @@ goOutBtn.addEventListener('click', function() {
 /* ルーム画面で、ホストの名前をみんなに表示 */
 //ホストのユーザー名をDBから取得して、貼り付け先に貼り付ける
 
+//ここは消せるはず。
 window.addEventListener('pageshow', function() {
 
   const $doc = document;
   let $roomHostNameBase = $doc.getElementById('roomHostName');
-  let tottekitaHostName = "もりら";　//ここの名前はDBから取れたものにするぞ！
+  let tottekitaHostName = "もりらすすす";　//ここの名前はDBから取れたものにするぞ！
   $roomHostNameBase.innerHTML = tottekitaHostName + "のルーム";
   
 }, false);
@@ -187,24 +188,13 @@ window.addEventListener('pageshow', function() {
 
 
 
-
-
-
-window.addEventListener('pageshow', function() {
-
-  const $doc = document;
-  let $roomHostNameBase = $doc.getElementById('roomHostName');
-  let tottekitaHostName = "もりら";　//ここの名前はDBから取れたものにするぞ！
-  $roomHostNameBase.innerHTML = tottekitaHostName + "のルーム";
-  
-}, false);
-
 //つぎに、ルームのIDをDBから取得して、貼り付け先に貼り付ける　見直し要！！
 window.addEventListener('pageshow', function() {
 
   const $doc = document;
   let $roomIdBase = $doc.getElementById('roomId');
-  let tottekitaRoomId = "000100"; //ベタガキでなくサーバ処理で名前を書き換える。
+
+  let tottekitaRoomId = Cookies.get('room_id');
   $roomIdBase.innerHTML = "ID:" + tottekitaRoomId;
   
 }, false);

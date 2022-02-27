@@ -17,8 +17,16 @@ roomCreateComplete.addEventListener('click', function() {
     axios.post(API_URL + HOST_NODE.addRoom,{owner_name: tottekitaRoomName.value})
         .then((res) => {
             if (res.data) {
+                console.log(res.data);
                 alert("ルーム作成完了!!☆彡");
+
+                //クッキーにroom_idを保存。
+                Cookies.set('room_id', res.data);
+
                 //ルーム待機画面への移動処理を作る
+                location = hosting_URL + '/mock/04_room.html';
+
+
             } else {
                 alert("ルームを作れませんでした。ごめんなさい。別のルームコードで作ってみてください。ごめんなさい。");
             }
