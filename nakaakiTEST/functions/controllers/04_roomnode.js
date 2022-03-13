@@ -8,17 +8,36 @@ const fireStore = require("./firestore");
 
 // サーバ側のために必要。index.jsと帳尻を揃える。こちらで書いたものをあちらへ反映する。
 
-exports.getRoomInfo = function (request, response) {  
-  //データをとりに行く
-  fireStore.collection(MODEL.ROOM.TABLE_NAME).doc(request.params.room_id).get().then((snapShot) => {
+exports.getRoomInfo = async function (request, response) {  
 
-    //データを整理整頓
-      let result = null;
-      if (snapShot) {
-        result = snapShot.get("name");
-      };
+  const querySnapshot = await fireStore.collection('active_user')
+  .where('room_id', '==', 'room/'  + request.params.room_id)
+  .get()
+  console.log(querySnapshot.size)
+  console.log(querySnapshot.empty)
+  let resData = [];
+  querySnapshot.forEach((postDoc) => {
+    resData.push(postDoc.data());
+    // resData.push(JSON.stringify(postDoc.data()));
+
+
+
+  // console.log(postDoc.id, ' => ', JSON.stringify(postDoc.data()))
+})
+console.log(resData);
+      response.send(resData);
+ 
+
+  //データをとりに行く
+  // fireStore.collection(MODEL.ROOM.TABLE_NAME).doc(request.params.room_id).get().then((snapShot) => {
+
+  //   //データを整理整頓
+  //     let result = null;
+  //     if (snapShot) {
+  //       result = snapShot.get("name");
+  //     };
       
-      //データを返す。レスポンスする。
-      response.send(result);
-    });
+  //     //データを返す。レスポンスする。
+  //     response.send(result);
+  //   });
   };

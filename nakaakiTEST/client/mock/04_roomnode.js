@@ -158,24 +158,14 @@ window.addEventListener('pageshow', function() {
         .then((res) => {
           
           //DBからホスト名を取得
-          const $doc = document;
+          // const $doc = document;
 
-          let $roomHostNameBase = $doc.getElementById('roomHostName');
-          $roomHostNameBase.innerHTML = res.data  + "のルーム";        
+          // let $roomHostNameBase = $doc.getElementById('roomHostName');
+          // $roomHostNameBase.innerHTML = res.data  + "のルーム";        
+
+          console.log(res.data);
 
         });
   
 }, false);
 
-
-
-//つぎに、ルームのIDをDBから取得して、貼り付け先に貼り付ける　見直し要！！
-window.addEventListener('pageshow', function() {
-
-  const $doc = document;
-  let $roomIdBase = $doc.getElementById('roomId');
-
-  let tottekitaRoomId = Cookies.get('room_id');
-  $roomIdBase.innerHTML = "ID:" + tottekitaRoomId;
-  
-}, false);
