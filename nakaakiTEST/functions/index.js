@@ -32,7 +32,7 @@ app.post("/add_room", hostnode.add_room);
 
 // 03_guestnode.js
 app.get("/get_room_by_code/:room_id", guestnode.getRoomByCode);
-app.get("/enter_room", guestnode.enterRoom);
+app.post("/enter_room", guestnode.enterRoom);
 
 // 04_roomnode
 app.get("/room_info/:room_id", roomnode.getRoomInfo);

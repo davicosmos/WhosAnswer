@@ -15,7 +15,7 @@
 
 //DBを読み込みたい。（見直し要　！！）
 let script = document.createElement('script'); //変数名は適当なものにでも
-script.src = "fakeDB.js"; //ファイルパス
+//script.src = "fakeDB.js"; //ファイルパス
 document.head.appendChild(script); //<head>に生成
 
 /* ゲストが使う個々のユーザー名の入力 　！！見直し要。ユーザーデータを書き込みに行きたい。*/
@@ -23,10 +23,10 @@ let tottekitaGuestUserName = document.getElementById('guestUserName');
 
 let roomEnterBtn = document.getElementById('roomEnter');
 
-roomEnterBtn.addEventListener('click', function() {
-alert("ゲスト名を取得しました。あなたが設定した名前はこちらです。" + tottekitaGuestUserName.value);
-console.log(tottekitaGuestUserName.value);
-});
+// roomEnterBtn.addEventListener('click', function() {
+// alert("ゲスト名を取得しました。あなたが設定した名前はこちらです。" + tottekitaGuestUserName.value);
+// console.log(tottekitaGuestUserName.value);
+// });
 
 
 /* 部屋に入る */
@@ -103,7 +103,25 @@ search_button.addEventListener('click', function() {
 
 
 /* このルームに入るの処理 */
+roomEnterBtn.addEventListener('click', function() {
 
+    let roomIdKensakuTottekuru = document.getElementById('roomNumberCheck1').value;
+
+    // ルームIDでルーム名を作成
+    axios.post(API_URL + GUEST_NODE.enterRoom,{guest_name: tottekitaGuestUserName.value, roomIdKensaku:roomIdKensakuTottekuru.value })
+        .then((res) => {
+            
+                console.log(res.data);
+
+                //クッキーにroom_idを保存。
+                Cookies.set('room_id', roomIdKensakuTottekuru);
+                console.log(roomIdKensakuTottekuru);
+
+                //ルーム待機画面への移動処理を作る
+                location = hosting_URL + '/mock/04_room.html';
+
+        });
+});
 
 
       

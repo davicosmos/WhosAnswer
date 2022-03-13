@@ -46,14 +46,13 @@
      <p id="roomNumberCheck4" class="room_name">お友達がホストのルーム</p>
 
      <!--このルームに入るボタン-->
-     <a>
-     <A HREF="04_room.html"><img class ="room-enter_btn02"
+     
+     <a href="javascript:void(0)" id="roomEnter">
+     <img class ="room-enter_btn02"
      href="kari" 
-     src="items/03_Guest-assets/room_enter_btn02.png"
-     id="roomEnter">
+     src="items/03_Guest-assets/room_enter_btn02.png">
      </a>
 
-     <script type="text/javascript" src="fakeDB.js"></script>
      <script type="text/javascript" src="03_guestnode.js"></script>
     <!--axiosをCDNでインポート-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -61,6 +60,11 @@
     <script type="text/javascript" src="./js/settings.js"></script>
     <!--APIリストjsファイル-->
     <script type="text/javascript" src="./js/api.js"></script>
+
+    <!--クッキー使えるための呪文。ページ跨ぎでデータ保持。　使い方：https://pizzamanz.net/web/javascript/js-cookie/　-->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+
 </body>
 
 </html>

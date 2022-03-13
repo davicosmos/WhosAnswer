@@ -15,10 +15,14 @@ exports.getRoomByCode = function (request, response) {
     response.send(result);
   });
 };
-exports.enterRoom = function (request, response) {
-  fireStore.collection(MODEL.QUIZ.TABLE_NAME).add({
-    text: '追加してみたよ'
-  }).then((docRef) => {
-    response.send("Document written with ID: " + docRef.id);
+exports.enterRoom = async function (request, response) {
+  const userRef = fireStore.collection('active_user').doc()
+  await userRef.set({
+    authority: '0',
+    role: '0',
+    room_id: 'room/'+ request.body.roomIdKensaku,
+    user_name: request.body.guest_name,
   });
+  response.send(true);
+
 };
