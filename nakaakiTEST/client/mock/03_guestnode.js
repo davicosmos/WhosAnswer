@@ -108,7 +108,7 @@ roomEnterBtn.addEventListener('click', function() {
     let roomIdKensakuTottekuru = document.getElementById('roomNumberCheck1').value;
 
     // ルームIDでルーム名を作成
-    axios.post(API_URL + GUEST_NODE.enterRoom,{guest_name: tottekitaGuestUserName.value, roomIdKensaku:roomIdKensakuTottekuru.value })
+    axios.post(API_URL + GUEST_NODE.enterRoom,{guest_name: tottekitaGuestUserName.value, roomIdKensaku:roomIdKensakuTottekuru })
         .then((res) => {
             
                 console.log(res.data);
