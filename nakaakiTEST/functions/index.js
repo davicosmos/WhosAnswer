@@ -10,7 +10,7 @@
 const hostnode = require('./controllers/02_hostnode');
 const guestnode = require('./controllers/03_guestnode');
 const roomnode = require('./controllers/04_roomnode');
-// const questionnode = require('./controllers/05_questionnode');
+const questionnode = require('./controllers/05_questionnode');
 // const choicenode = require('./controllers/06_choicenode');
 // const resultnode = require('./controllers/07_resultnode');
 
@@ -38,7 +38,9 @@ app.post("/enter_room", guestnode.enterRoom);
 app.get("/room_info/:room_id", roomnode.getRoomInfo);
 
 // 05_questionnode
-//
+app.get("/getGame/:room_id", questionnode.getGame); //一人目ならgameレコードを作成しそれいがいであればgameのレコードを取得するので何人めか確認
+app.post("/enter_room", questionnode.enterRoom);　
+
 
 // 06_choicenode
 //
