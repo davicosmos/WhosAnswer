@@ -39,7 +39,7 @@ app.get("/room_info/:room_id", roomnode.getRoomInfo);
 
 // 05_questionnode
 app.get("/getGame/:room_id", questionnode.getGame); //一人目ならgameレコードを作成しそれいがいであればgameのレコードを取得するので何人めか確認
-app.post("/enter_room", questionnode.enterRoom);　
+// app.post("/enter_room", questionnode.enterRoom);　
 
 
 // 06_choicenode

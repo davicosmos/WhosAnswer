@@ -10,12 +10,14 @@ const fireStore = require("./firestore");
 
 exports.getGame = async function (request, response) {  
 
+  //自分の部屋のgameを取得する。
     const querySnapshot = await fireStore.collection('game')
     .where('room_id', '==', 'room/'  + request.params.room_id)
     .get()
-    console.log(querySnapshot.size)
-    console.log(querySnapshot.empty)
+    console.log("確認要のgame取得" + querySnapshot.size)
+    console.log("確認要のgame取得" + querySnapshot.empty)
 
+    //gameが作成されていない(自分が一番乗りだった)場合はgameを作成する
     if(querySnapshot.size <= 0){
         const userRef = fireStore.collection('game').doc()
 
@@ -30,21 +32,22 @@ exports.getGame = async function (request, response) {
           done_quiz_id:[]
         });
     };
-
+    //ゲームがあるはずなので、取得する
     const querySnapshot2 = await fireStore.collection('game')
     .where('room_id', '==', 'room/'  + request.params.room_id)
     .get()
-    console.log(querySnapshot2.size)
-    console.log(querySnapshot2.empty)
+    console.log("あるはずのgameの本取得" + querySnapshot2.size)
+    console.log("あるはずのgameの本取得" + querySnapshot2.empty)
 
-    let quizID_kakou = querySnapshot2.get("quiz_id");
-    let ret = quizID_kakou.replace("/quiz/", "");
+    //gameに紐づけられたクイズのテキストを取得する
+    let quizID_kakou = querySnapshot2.docs[0].get("quiz_id");
+    let ret = quizID_kakou.replace("quiz/", "");
     const querySnapshot3 = await fireStore.collection('quiz').doc(ret).get()
 
 
     let resData = { game: querySnapshot2, quiz: querySnapshot3 };
 
-    console.log(resData);
+    console.log("レスポンス" + resData);
     response.send(resData);
    
     };

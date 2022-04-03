@@ -37,32 +37,33 @@ window.addEventListener('pageshow', function() {
     .then((res) => {
 
 const memberLen = res.data.length;
+console.log(res.data);
 
 
-res.data.sort(function(first, second){
-if (first.authority > second.authority){
-return -1;
-}else{
-return 0;
-}
-});
+// res.data.sort(function(first, second){
+// if (first.authority > second.authority){
+// return -1;
+// }else{
+// return 0;
+// }
+// });
     });
 
 
 
 
-    //ランダム数字を生成
-    //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
-    let maxNumRange = 2;
-    //2.ランダムな数字を生成
-    let randomNum = parseInt(Math.random() * maxNumRange) + 1;
+    // //ランダム数字を生成
+    // //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
+    // let maxNumRange = 2;
+    // //2.ランダムな数字を生成
+    // let randomNum = parseInt(Math.random() * maxNumRange) + 1;
 
-    //3.ランダム生成された数字の検証
-    console.log(randomNum);
+    // //3.ランダム生成された数字の検証
+    // console.log(randomNum);
 
-    const $doc = document;
-    let $quizSyutudai = $doc.getElementById('quizSyutsudai');
-    $quizSyutudai.innerHTML = quiz[randomNum].question;
+    // const $doc = document;
+    // let $quizSyutudai = $doc.getElementById('quizSyutsudai');
+    // $quizSyutudai.innerHTML = quiz[randomNum].question;
 
     
   }, false);
