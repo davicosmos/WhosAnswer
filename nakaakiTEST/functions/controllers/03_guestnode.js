@@ -16,13 +16,16 @@ exports.getRoomByCode = function (request, response) {
   });
 };
 exports.enterRoom = async function (request, response) {
-  const userRef = fireStore.collection('active_user').doc()
-  await userRef.set({
+  const userRef = await fireStore.collection('active_user').add({
     authority: '0',
     role: '0',
     room_id: 'room/'+ request.body.roomIdKensaku,
     user_name: request.body.guest_name,
   });
-  response.send(true);
+
+  const userDoc = await userRef.get()
+  console.log(userDoc.id)
+
+  response.send(userDoc.id);
 
 };

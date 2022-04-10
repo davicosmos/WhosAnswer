@@ -113,8 +113,9 @@ roomEnterBtn.addEventListener('click', function() {
             
                 console.log(res.data);
 
-                //クッキーにroom_idを保存。
+                //クッキーにroom_idおよびuser_idを保存。
                 Cookies.set('room_id', roomIdKensakuTottekuru);
+                Cookies.set('user_id', res.data);
                 console.log(roomIdKensakuTottekuru);
 
                 //ルーム待機画面への移動処理を作る

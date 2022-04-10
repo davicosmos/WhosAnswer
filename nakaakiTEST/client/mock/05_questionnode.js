@@ -39,6 +39,9 @@ window.addEventListener('pageshow', function() {
 const memberLen = res.data.length;
 console.log(res.data);
 
+// 質問内容を書き換え
+let quiz_disp = document.getElementById('quizSyutsudai');
+quiz_disp.innerHTML = res.data.quiz.text;
 
 // res.data.sort(function(first, second){
 // if (first.authority > second.authority){
@@ -77,4 +80,28 @@ let answerInputCheckBtn = document.getElementById('answerInputCheck');
 answerInputCheckBtn.addEventListener('click', function() {
 alert("あなたが入力した回答はこちらです。" + tottekitaAnswerInput.value);
 console.log(tottekitaAnswerInput.value);
+});
+
+
+
+//回答の入力ができているかを確認
+answerInput.addEventListener('click', function() {
+  // ルームIDでルーム名を作成
+  axios.post(API_URL + HOST_NODE.postAnswer,{text: tottekitaAnswerInput.value})
+      .then((res) => {
+          if (res.data) {
+              console.log(res.data);
+              alert("あなたが入力した回答はこちらです!!☆彡");
+
+              //クッキーにroom_idを保存。
+              Cookies.set('room_id', res.data);
+
+              //ルーム待機画面への移動処理を作る
+              location = hosting_URL + '/mock/04_room.html';
+
+
+          } else {
+              alert("ルームを作れませんでした。ごめんなさい。別のルームコードで作ってみてください。ごめんなさい。");
+          }
+      });
 });
