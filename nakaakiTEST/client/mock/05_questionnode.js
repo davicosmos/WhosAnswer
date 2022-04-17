@@ -36,8 +36,9 @@ window.addEventListener('pageshow', function() {
     axios.get(API_URL + QUESTION_NODE.getGame + '/' + room_id)
     .then((res) => {
 
-const memberLen = res.data.length;
+// const memberLen = res.data.length;
 console.log(res.data);
+Cookies.set('game_id', res.data.game[0]);
 
 // 質問内容を書き換え
 let quiz_disp = document.getElementById('quizSyutsudai');
@@ -86,22 +87,19 @@ console.log(tottekitaAnswerInput.value);
 
 //回答の入力ができているかを確認
 answerInput.addEventListener('click', function() {
+
+    // クッキーからユーザーIDと部屋IDを取得
+    const user_id = Cookies.get('ueser_id');
+    const game_id = Cookies.get('game_id');
+
+
   // ルームIDでルーム名を作成
-  axios.post(API_URL + HOST_NODE.postAnswer,{text: tottekitaAnswerInput.value})
+  axios.post(API_URL + QUESTION_NODE.postAnswer,{text: tottekitaAnswerInput.value, user_id:user_id , game_id:game_id })
       .then((res) => {
           if (res.data) {
               console.log(res.data);
               alert("あなたが入力した回答はこちらです!!☆彡");
 
-              //クッキーにroom_idを保存。
-              Cookies.set('room_id', res.data);
-
-              //ルーム待機画面への移動処理を作る
-              location = hosting_URL + '/mock/04_room.html';
-
-
-          } else {
-              alert("ルームを作れませんでした。ごめんなさい。別のルームコードで作ってみてください。ごめんなさい。");
           }
       });
 });

@@ -15,16 +15,24 @@ exports.add_room = async function (request, response) {
         // await rooom.set({name:request.body.room_name});
 
         //アクティブユーザーのDBにホストのデータを新規作成
-        const userRef = fireStore.collection('active_user').doc()
-        await userRef.set({
+        const userRef = await fireStore.collection('active_user').add({
           authority: '1',
           role: '0',
           room_id: 'room/'+ mojiretsu,
           user_name: request.body.owner_name,
-        })
+        });
+
+  const userDoc = await userRef.get()
+  let userData = userDoc.data();
+  userData["id"] = userDoc.id;
+
+  console.log(userData);
+
+  response.send(userData);
+
 
         //次の画面へ02で作成したルームIDを渡す処理。
-        response.send(mojiretsu);
+//        response.send(mojiretsu);
     } catch (err) {
     response.send(err.message);
   }

@@ -21,7 +21,12 @@ roomCreateComplete.addEventListener('click', function() {
                 alert("ルーム作成完了!!☆彡");
 
                 //クッキーにroom_idを保存。
-                Cookies.set('room_id', res.data);
+                let str = res.data.room_id;
+                let ret =str.replace("room/","");
+                Cookies.set('room_id', ret);
+
+                //クッキーにユーザーのidを保存。
+                Cookies.set('user_id', res.data.id);
 
                 //ルーム待機画面への移動処理を作る
                 location = hosting_URL + '/mock/04_room.html';

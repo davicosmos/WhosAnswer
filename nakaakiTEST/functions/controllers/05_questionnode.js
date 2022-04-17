@@ -45,7 +45,7 @@ exports.getGame = async function (request, response) {
     const querySnapshot3 = await fireStore.collection('quiz').doc(ret).get()
 
 
-    let resData = { game: querySnapshot2.docs.map(doc => doc.data()), quiz: querySnapshot3.data() };
+    let resData = { game: querySnapshot2.docs.map(doc => doc.id), quiz: querySnapshot3.data() };
 
     console.log("レスポンス" + resData);
     response.send(resData);
@@ -55,13 +55,13 @@ exports.getGame = async function (request, response) {
 
     exports.postAnswer = async function (request, response) {  
 
-      // //入力フィールドに記載されたテキストをSelectionのDBへ挿入する。
-      //       const answerAnswer = fireStore.collection('selection').doc()
-      //       await answerAnswer.set({
-      //         game_id: xxx ,
-              // is_answer: false
-//              text: 
-//              user_id: 
+      //入力フィールドに記載されたテキストをSelectionのDBへ挿入する。
+            // const answerAnswer = fireStore.collection('selection').doc()
+            // await answerAnswer.set({
+            //   game_id: xxx ,
+            //   is_answer: false
+            //  text: 
+            //  user_id: 
 
             // })
           };
