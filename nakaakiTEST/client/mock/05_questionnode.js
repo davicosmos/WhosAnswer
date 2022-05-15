@@ -86,11 +86,16 @@ console.log(tottekitaAnswerInput.value);
 
 
 //回答の入力ができているかを確認
-answerInput.addEventListener('click', function() {
+answerInputCheckBtn.addEventListener('click', function() {
 
     // クッキーからユーザーIDと部屋IDを取得
-    const user_id = Cookies.get('ueser_id');
+    const user_id = Cookies.get('user_id');
     const game_id = Cookies.get('game_id');
+
+              
+    console.log(user_id);
+    console.log(game_id);
+    console.log(tottekitaAnswerInput.value);
 
 
   // ルームIDでルーム名を作成
@@ -98,6 +103,7 @@ answerInput.addEventListener('click', function() {
       .then((res) => {
           if (res.data) {
               console.log(res.data);
+
               alert("あなたが入力した回答はこちらです!!☆彡");
 
           }

@@ -56,12 +56,17 @@ exports.getGame = async function (request, response) {
     exports.postAnswer = async function (request, response) {  
 
       //入力フィールドに記載されたテキストをSelectionのDBへ挿入する。
-            // const answerAnswer = fireStore.collection('selection').doc()
-            // await answerAnswer.set({
-            //   game_id: xxx ,
-            //   is_answer: false
-            //  text: 
-            //  user_id: 
+            const answerAnswer = fireStore.collection('selection').doc()
+            await answerAnswer.set({
+              game_id: 'game/'+ request.body.game_id ,
+              is_answer: false ,
+             text: request.body.text ,
+             user_id: 'active_user/' + request.body.user_id
 
-            // })
+            })
+
+      //全ユーザーの回答が出揃った後、ランダムな回答1つにis_answerフラグ1をつける。
+      
+
+
           };
