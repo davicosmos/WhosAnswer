@@ -65,8 +65,20 @@ exports.getGame = async function (request, response) {
 
             })
 
+//1.game collectionをgame_idで検索し,roomidを取得　※いままで作ってきたソースをもとに、これらをコツコツ作っていく。
+
+
+//2.active_userをroom_idで検索し、roomの人数を取得
+
+
+//3.selectionをgame idで検索し、回答墨の人数を取得
+
+
       //全ユーザーの回答が出揃った後、ランダムな回答1つにis_answerフラグ1をつける。
       
 
 
           };
+
+
+ 

@@ -79,6 +79,10 @@ let tottekitaAnswerInput = document.getElementById('answerInput');
 let answerInputCheckBtn = document.getElementById('answerInputCheck');
 
 answerInputCheckBtn.addEventListener('click', function() {
+
+    document.getElementById("answerInputCheck_div").hidden = true;
+    document.getElementById("answerInputCheck_div_hidden").hidden = false;
+
 alert("あなたが入力した回答はこちらです。" + tottekitaAnswerInput.value);
 console.log(tottekitaAnswerInput.value);
 });
@@ -98,7 +102,7 @@ answerInputCheckBtn.addEventListener('click', function() {
     console.log(tottekitaAnswerInput.value);
 
 
-  // ルームIDでルーム名を作成
+  // 回答内容を送信
   axios.post(API_URL + QUESTION_NODE.postAnswer,{text: tottekitaAnswerInput.value, user_id:user_id , game_id:game_id })
       .then((res) => {
           if (res.data) {
