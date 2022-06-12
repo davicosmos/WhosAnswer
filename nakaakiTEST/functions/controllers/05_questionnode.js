@@ -68,23 +68,29 @@ exports.getGame = async function (request, response) {
 //1.game collectionをgame_idで検索し,roomidを取得　※いままで作ってきたソースをもとに、これらをコツコツ作っていく。
 let game = fireStore.collection(MODEL.GAME.TABLE_NAME).doc(request.body.game_id)
 let snapShot = await game.get()
-
+console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
 
    let roomId = snapShot.get("room_id");
 
+
+
   //2.active_userをroom_idで検索し、roomの人数を取得
-  const querySnapshot3 = await fireStore.collection('active_user')
-  .where('room_id', '==', 'room/'  + roomId)
+  const querySnapshot3 = await fireStore.collection("active_user")
+  .where("room_id", "==", roomId)
   .get()
 
   let userCount = querySnapshot3.docs.length;
 
   //3.selectionをgame idで検索し、回答済みの人数を取得
   const querySnapshot4 = await fireStore.collection('selection')
-  .where('game_id', '==', 'game/'  + game_id)
+  .where('game_id', '==', 'game/'  + request.body.game_id)
    .get()
 
   let answerCount = querySnapshot4.docs.length;
+
+
+  console.log(answerCount+ "ですわよ")
+  console.log(userCount+ "でやんす")
 
   if(answerCount >= userCount){
     //selectionをgame_idで検索し、ランダムで1つのidを取得する。
@@ -93,8 +99,9 @@ let snapShot = await game.get()
 
     let b = Math.floor( Math.random() * (max + 1 - min) ) + min ;
 
-    let selection_id = querySnapshot4.docs[b].getId();
-
+    let selection_id = querySnapshot4.docs[b].id;
+    console.log(selection_id)
+    
     //idを指定し、is_answerをtrueにする。
     const is_ansewrChange = fireStore.collection('selection').doc(selection_id)
     await is_ansewrChange.update({
