@@ -111,3 +111,51 @@ console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
   }
 
   }
+
+
+  exports.getTsudukeruBtn = async function (request, response) {  
+
+    //getからidをひろう
+    let getGame2 = request.params.game_id
+
+
+
+    //true falseから全員終わっているかを返す
+    //1.game collectionをgame_idで検索し,roomidを取得
+let game = fireStore.collection(MODEL.GAME.TABLE_NAME).doc(getGame2)
+let snapShot = await game.get()
+console.log(getGame2)
+
+   let roomId = snapShot.get("room_id");
+
+
+
+  //2.active_userをroom_idで検索し、roomの人数を取得
+  const querySnapshot3 = await fireStore.collection("active_user")
+  .where("room_id", "==", roomId)
+  .get()
+
+  let userCount = querySnapshot3.docs.length;
+
+  //3.selectionをgame idで検索し、回答済みの人数を取得
+  const querySnapshot4 = await fireStore.collection('selection')
+  .where('game_id', '==', 'game/'  + getGame2)
+   .get()
+
+  let answerCount = querySnapshot4.docs.length;
+
+
+  console.log(answerCount+ "ですわよ")
+  console.log(userCount+ "でやんす")
+
+  if(answerCount >= userCount){
+    //selectionをgame_idで検索し、ランダムで1つのidを取得する。
+ 
+    response.send(true);
+
+  }else{
+
+    response.send(false);
+  
+  }
+      };

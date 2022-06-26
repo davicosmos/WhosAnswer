@@ -11,7 +11,7 @@ const hostnode = require('./controllers/02_hostnode');
 const guestnode = require('./controllers/03_guestnode');
 const roomnode = require('./controllers/04_roomnode');
 const questionnode = require('./controllers/05_questionnode');
-// const choicenode = require('./controllers/06_choicenode');
+const choicenode = require('./controllers/06_choicenode');
 // const resultnode = require('./controllers/07_resultnode');
 
 // functions有効化
@@ -40,9 +40,11 @@ app.get("/room_info/:room_id", roomnode.getRoomInfo);
 // 05_questionnode
 app.get("/getGame/:room_id", questionnode.getGame); //一人目ならgameレコードを作成しそれいがいであればgameのレコードを取得するので何人めか確認
 app.post("/post_answer", questionnode.postAnswer);　//入力した回答をDBへ挿入する。
+app.get("/getTsudukeruBtn/:game_id", questionnode.getTsudukeruBtn); //続けるボタンの動作（APIとしては、全員が回答完了かの状態を返す）
 
 // 06_choicenode
-//
+app.get("/getSelection/:game_id", choicenode.getSelection); //全員の回答入力内容を取得
+
 
 // 07_resultnode
 //

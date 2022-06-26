@@ -73,23 +73,17 @@ let DbUserNumber = fakeUserData.length;
 
 window.addEventListener('pageshow', function() {
 
-    //ランダム数字を生成
-    //1.ランダム数字の上限を指定(0〜指定した数字の範囲)
-    let maxNumRange = DbUserNumber - 1;
-    //2.ランダムな数字を生成
-    let randomNum = parseInt(Math.random() * maxNumRange) + 1;
+   const game_id = Cookies.get('game_id');
 
-    //3.ランダム生成された数字の検証
-    console.log(randomNum);
+    axios.get(API_URL + CHOICE_NODE.getSelection + '/' + game_id)
+    .then((res) => {
+    });
 
-    //DBから人の名前をランダムに取得して、貼り付け先に貼り付ける（DB使いながらちゃんと書く必要がある）
-    /*これはランダム数字取りできていそうでできていないみたいで動かない*/
-//     const $doc = document;
-//       let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');
-//       let tottekitaMemberName = fakeUserNameList[randomNum]; //ここの名前はDBから取れたものにするぞ！
-//         $choiceSareruMemberNameBase.innerHTML = tottekitaMemberName + "さんの回答はどれ" ;
-    
-//   }, false);
+
+
+
+
+
 
   const $doc = document;
   let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');

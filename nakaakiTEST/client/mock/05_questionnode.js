@@ -113,3 +113,29 @@ answerInputCheckBtn.addEventListener('click', function() {
           }
       });
 });
+
+//全員が回答を入力したかを確認
+let tsudukeruBtn = document.getElementById('answerInputCheck_div_hidden');
+
+tsudukeruBtn.addEventListener('click', function() {
+
+ const game_id = Cookies.get('game_id');
+
+ axios.get(API_URL + QUESTION_NODE.getTsudukeruBtn + '/' + game_id)
+ .then((res) => {
+
+    if(res.data){
+        //ルーム待機画面への移動処理を作る
+        location = hosting_URL + '/mock/06_choice.html';
+
+    }else{
+        alert("全員の回答が出揃うまで待ちたまえよ!!☆彡");
+    }
+
+console.log(res.data)
+ });
+
+
+
+
+});
