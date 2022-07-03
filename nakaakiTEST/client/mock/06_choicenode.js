@@ -77,18 +77,18 @@ window.addEventListener('pageshow', function() {
 
     axios.get(API_URL + CHOICE_NODE.getSelection + '/' + game_id)
     .then((res) => {
+      console.log(res.data)
+      let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');
+      let tottekitaMemberName = res.data.username;
+        $choiceSareruMemberNameBase.innerHTML = tottekitaMemberName + "さんの回答はどれ" ;
+    
     });
 
 
-
-
-
-
-
-  const $doc = document;
-  let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');
-  let tottekitaMemberName = "キャベツ太朗"; //ここの名前はDBから取れたものにするぞ！
-    $choiceSareruMemberNameBase.innerHTML = tottekitaMemberName + "さんの回答はどれ" ;
+  // const $doc = document;
+  // let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');
+  // let tottekitaMemberName = "キャベツ太朗"; //ここの名前はDBから取れたものにするぞ！
+  //   $choiceSareruMemberNameBase.innerHTML = tottekitaMemberName + "さんの回答はどれ" ;
 
 }, false);
 
