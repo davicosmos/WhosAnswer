@@ -51,3 +51,8 @@ response.send({
     };
 
 
+
+exports.sendSelection = async function (request, response) {  
+//セレクションにユーザーネームを追加
+  
+    }

@@ -44,6 +44,7 @@ app.get("/getTsudukeruBtn/:game_id", questionnode.getTsudukeruBtn); //続ける�
 
 // 06_choicenode
 app.get("/getSelection/:game_id", choicenode.getSelection); //全員の回答入力内容を取得
+app.post("/sendSelection", choicenode.sendSelection);　//入力した回答をDBへ挿入する。
 
 
 // 07_resultnode

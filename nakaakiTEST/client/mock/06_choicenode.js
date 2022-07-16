@@ -81,11 +81,24 @@ window.addEventListener('pageshow', function() {
       let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');
       let tottekitaMemberName = res.data.username;
         $choiceSareruMemberNameBase.innerHTML = tottekitaMemberName + "さんの回答はどれ" ;
-    
+
+
+  // ランダムな順番に並べ替えられた回答リストを画面に表示
+
+  let $choiceList = document.getElementById('answerList');
+
+  var ol = document.createElement('ol');
+
+  ol.innerHTML = arrayShuffle(res.data.selections);
+
+  $choiceList.appendChild(ol);
+
+
+      console.log()
     });
 
 
-  // const $doc = document;
+  const $doc = document;
   // let $choiceSareruMemberNameBase = $doc.getElementById('choiceSareruMemberName');
   // let tottekitaMemberName = "キャベツ太朗"; //ここの名前はDBから取れたものにするぞ！
   //   $choiceSareruMemberNameBase.innerHTML = tottekitaMemberName + "さんの回答はどれ" ;
@@ -97,7 +110,7 @@ window.addEventListener('pageshow', function() {
 
   //回答リストをランダムな順番に並べ替え
   function arrayShuffle(array) {
-    for(let i = (choiceDB.length - 1); 0 < i; i--){
+    for(let i = (array.length - 1); 0 < i; i--){
   
       // 0〜(i+1)の範囲で値を取得
       let r = Math.floor(Math.random() * (i + 1));
@@ -108,41 +121,56 @@ window.addEventListener('pageshow', function() {
       array[r] = tmp;
     }
     // let returnCheck = array.map((obj) => obj.answer)
-    let result = '<ol id = "answerList" >';
-
+    // let result = '<ol id = "answerList" >';
+    let result = ""
 
     for(const answer of array){
       // let n = 0; //ここ書き換えた
       // result = result+ '<li'  + '>' + answer + '<li/>'
-      result = result + '<li > <input type ="radio" class="radiobutton" name ="answer"   id = "'  + answer.choiceID  + '" /> <label for="'  + answer.choiceID  + '">' + answer.answer + '</label> <li/>' //ここ書き換えた
+      result = result + '<li> <input type ="radio" class="radiobutton" name ="answer"   id = "'  + answer.selectionID  + '" /> <label for="'  + answer.selectionID  + '">' + answer.text + '</label> </li>' //ここ書き換えた
 
       // count++
     };
 
-    result = result + '</ol>';
+    // result = result + '</ol>';
     return result;
   };
 
 
-  //ランダムな順番に並べ替えられた回答リストを画面に表示
-  const $doc = document;
-  let $choiceList = $doc.getElementById('answerList');
-  $choiceList.innerHTML =  arrayShuffle(choiceDB);
+//   //ランダムな順番に並べ替えられた回答リストを画面に表示
+//   const $doc = document;
+//   let $choiceList = $doc.getElementById('answerList');
+// //  $choiceList.innerHTML =  arrayShuffle(choiceDB);
   
 
 /* 回答をクリックした上で「決定」を押して次に進む */
 let choiceDecideBtn = document.getElementById("end");
 choiceDecideBtn.addEventListener('click', function() {
-
-  let elements = document.getElementsByName('answer');
-  let len = elements.length;
-  let checkValue = '';
+/*　選択されている回答のSelectionIDを取得　*/
+let elements = document.getElementsByName('answer');
+let len = elements.length;
+let checkValue = '';
   
-  for (let i = 0; i < len; i++){
-      if (elements.item(i).checked){
-          checkValue = elements.item(i).id;
-      }
-  }
+for (let i = 0; i < len; i++){
+    if (elements.item(i).checked){
+        checkValue = elements.item(i).id;
+    }
+}
 
-    alert("あなたが選択した回答はこちらです。" + checkValue);
-    });
+  alert("あなたが選択した回答はこちらです。" + checkValue);
+  });
+
+/*　SelectionIDをAPIで送信　*/
+  // 回答内容を送信
+  // クッキーからユーザーIDと部屋IDを取得
+  const user_id = Cookies.get('user_id');
+
+  axios.post(API_URL + CHOICE_NODE.sendSelection,{selectionID: checkValue, user_id:user_id})
+      .then((res) => {
+        /*　次画面に遷移　*/
+        
+      });
+
+
+
+
