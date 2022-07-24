@@ -3,6 +3,7 @@ const { user } = require("firebase-functions/lib/providers/auth");
 const MODEL = require("../util/model");
 const fireStore = require("./firestore");
 
+
 //詳しい使い方は下記参照
 //https://www.wakuwakubank.com/posts/723-firebase-firestore-query/
 //https://firebase.google.com/docs/firestore/query-data/queries?hl=ja
@@ -54,5 +55,16 @@ response.send({
 
 exports.sendSelection = async function (request, response) {  
 //セレクションにユーザーネームを追加
-  
+const querySnapshot3 = await fireStore.collection(MODEL.ACTIVE_USER.TABLE_NAME).doc(request.body.user_id).get();
+
+let username = querySnapshot3.get("user_name")
+
+const userRef = fireStore.collection('selection').doc(request.body.selectionID)
+await userRef.update({
+
+    select_user_name: fireStore.app.firestore.FieldValue.arrayUnion(username)
+
+})
+
+
     }
