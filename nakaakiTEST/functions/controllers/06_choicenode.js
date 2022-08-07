@@ -2,8 +2,7 @@
 const { user } = require("firebase-functions/lib/providers/auth");
 const MODEL = require("../util/model");
 const admin = require("./firestore");
-const fireStore = admin.firestore();
-
+const fireStore = admin.firestore.Firestore();
 
 //詳しい使い方は下記参照
 //https://www.wakuwakubank.com/posts/723-firebase-firestore-query/
