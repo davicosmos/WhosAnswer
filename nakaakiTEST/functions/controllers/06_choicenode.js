@@ -1,7 +1,8 @@
 // インポート
 const { user } = require("firebase-functions/lib/providers/auth");
 const MODEL = require("../util/model");
-const fireStore = require("./firestore");
+const admin = require("./firestore");
+const fireStore = admin.firestore();
 
 
 //詳しい使い方は下記参照

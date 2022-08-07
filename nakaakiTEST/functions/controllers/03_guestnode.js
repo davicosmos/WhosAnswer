@@ -1,6 +1,7 @@
 // インポート
 const MODEL = require("../util/model");
-const fireStore = require("./firestore");
+const admin = require("./firestore");
+const fireStore = admin.firestore();
 
 //詳しい使い方は下記参照
 //https://www.wakuwakubank.com/posts/723-firebase-firestore-query/
