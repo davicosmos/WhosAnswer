@@ -55,21 +55,19 @@ response.send({
 
 exports.sendSelection = async function (request, response) {  
 //セレクションにユーザーネームを追加
-console.log("ここだよーん1")
 
 const querySnapshot3 = await fireStore.collection(MODEL.ACTIVE_USER.TABLE_NAME).doc(request.body.user_id).get();
 
 let username = querySnapshot3.get("user_name")
 
 const userRef = fireStore.collection('selection').doc(request.body.selectionID)
-console.log(userRef)
-console.log("ここだよーん2")
+
  userRef.update({
 
-    // select_user_name: admin.firestore.FieldValue.arrayUnion(username)
-    user_id: username
+    select_user_name: admin.firestore.FieldValue.arrayUnion(username)
+
 
 })
-
+response.send()
 
     }

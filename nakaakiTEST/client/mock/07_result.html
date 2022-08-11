@@ -35,7 +35,7 @@
      </div>
 
      <div class=result>
-          <h1 id = result_happyou >正解は･･････</h1>
+          <h1 id = result_happyou >正解は･･････<span id = result_happyou2></span>でした</h1>
           <!--星画像に番号入れちゃう-->
           <div class=correct_num>
               <!-- <img src="items/07_result-assets/star_mark.png"> -->
@@ -67,6 +67,17 @@
 
 <script src="07_script.js"></script>
 <script src="07_resultnode.js"></script>
+
+     <!--axiosをCDNでインポート-->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <!--設定用jsファイル-->
+     <script type="text/javascript" src="./js/settings.js"></script>
+     <!--APIリストjsファイル-->
+     <script type="text/javascript" src="./js/api.js"></script>
+     <!--クッキー使えるための呪文。ページ跨ぎでデータ保持。　使い方：https://pizzamanz.net/web/javascript/js-cookie/　-->
+     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+ 
+
 </body>
 
 </html>

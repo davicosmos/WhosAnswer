@@ -101,12 +101,7 @@ function resultArray(array) {
     return result;
   };
 
-/* HTML上にどれが正解かを表示するために以下の文言を送る */
-window.addEventListener('pageshow', function() {
-    const $doc = document;
-    let $resultShow = $doc.getElementById('result_happyou');
-    $resultShow.innerHTML = ("正解は･･････xxx番の回答であるyyyでした！おつおつ！");
-}, false);
+
 
 
 
@@ -114,3 +109,31 @@ window.addEventListener('pageshow', function() {
 const $doc = document;
 let $resultList = $doc.getElementById('resultList');
 $resultList.innerHTML =  resultArray(choiceDB);
+
+window.addEventListener('pageshow', function() {
+/* gameIDでSelectionを取得 */
+const game_id = Cookies.get('game_id');
+
+axios.get(API_URL + RESULT_NODE.getResult + '/' + game_id)
+    .then((res) => {
+        console.log(res)
+ /* IsAnswerがtureのSelectionのtextを表示 */
+ let answer_select=""
+
+res.data.forEach(element => {
+    if(element.is_answer){
+        answer_select = element.text
+    }
+});
+let result_happyou2 = document.getElementById("result_happyou2")
+result_happyou2.innerHTML = answer_select
+
+/* SelectionのtextとSelectUsernameをList表示 */
+
+
+    });
+
+
+}, false);
+
+

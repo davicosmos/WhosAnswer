@@ -12,7 +12,7 @@ const guestnode = require('./controllers/03_guestnode');
 const roomnode = require('./controllers/04_roomnode');
 const questionnode = require('./controllers/05_questionnode');
 const choicenode = require('./controllers/06_choicenode');
-// const resultnode = require('./controllers/07_resultnode');
+const resultnode = require('./controllers/07_resultnode');
 
 // functions有効化
 const functions = require("firebase-functions");
@@ -48,6 +48,6 @@ app.post("/sendSelection", choicenode.sendSelection);　//入力した回答をD
 
 
 // 07_resultnode
-//
+app.get("/getResult/:game_id", resultnode.getResult); //全員の回答入力内容を取得
 
 exports.app = functions.https.onRequest(app);

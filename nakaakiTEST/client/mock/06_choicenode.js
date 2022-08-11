@@ -158,9 +158,7 @@ for (let i = 0; i < len; i++){
 }
 
   alert("あなたが選択した回答はこちらです。" + checkValue);
-  });
-
-/*　SelectionIDをAPIで送信　*/
+  /*　SelectionIDをAPIで送信　*/
   // 回答内容を送信
   // クッキーからユーザーIDと部屋IDを取得
   const user_id = Cookies.get('user_id');
@@ -168,8 +166,13 @@ for (let i = 0; i < len; i++){
   axios.post(API_URL + CHOICE_NODE.sendSelection,{selectionID: checkValue, user_id:user_id})
       .then((res) => {
         /*　次画面に遷移　*/
-        
+        //ルーム待機画面への移動処理を作る
+         location = hosting_URL + '/mock/07_result.html';
       });
+
+  });
+
+
 
 
 
