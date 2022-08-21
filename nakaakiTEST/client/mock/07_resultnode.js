@@ -105,10 +105,10 @@ function resultArray(array) {
 
 
 
-/* 誰がどの選択肢を選んだかのリストを画面に表示 */
-const $doc = document;
-let $resultList = $doc.getElementById('resultList');
-$resultList.innerHTML =  resultArray(choiceDB);
+// /* 誰がどの選択肢を選んだかのリストを画面に表示 */
+// const $doc = document;
+// let $resultList = $doc.getElementById('resultList');
+// $resultList.innerHTML =  resultArray(choiceDB);
 
 window.addEventListener('pageshow', function() {
 /* gameIDでSelectionを取得 */
@@ -130,9 +130,39 @@ result_happyou2.innerHTML = answer_select
 
 /* SelectionのtextとSelectUsernameをList表示 */
 
+/*　06画面に全ての回答をリストで表示するべく、DBから回答を取得　*/
 
+  //回答リストをランダムな順番に並べ替え　※このarrayResultの塊を削除すると3の壁まで通る。4の壁に進められない。
+  function arrayResult(array) {
+    let result = ""
+
+    for(const answer of array){
+
+      result = result + '<li> <class="radiobutton" name ="answer"   id = "' + answer.text + '</label> </li>' //ここが怪しい
+
+      // count++
+    };
+
+    // result = result + '</ol>';
+    return result;
+  };
+
+let $resultList = document.getElementById('resultList');
+
+console.log("1の壁")
+
+  var ol = document.createElement('ol');
+
+  console.log("2の壁")
+
+  ol.innerHTML = arrayResult(res.data.selections);
+
+  console.log("3の壁")
+
+  $resultList.appendChild(ol);
+
+      console.log("4の壁")
     });
-
 
 }, false);
 
