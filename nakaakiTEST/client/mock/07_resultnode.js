@@ -87,7 +87,7 @@ function resultArray(array) {
         
     }
     // let returnCheck = array.map((obj) => obj.finalAnswer)
-    let result = '<ol id = "resultList" >';
+    let result = '<ol id = "answerList" >';
 
     /* DBから取得した名前を各列に */
     let i = 0;
@@ -132,13 +132,44 @@ result_happyou2.innerHTML = answer_select
 
 /*　06画面に全ての回答をリストで表示するべく、DBから回答を取得　*/
 
-  //回答リストをランダムな順番に並べ替え　※このarrayResultの塊を削除すると3の壁まで通る。4の壁に進められない。
-  function arrayResult(array) {
+
+
+let $answerList = document.getElementById('answerList');
+
+console.log("1の壁")
+
+  var ol = document.createElement('ol');
+
+  console.log(res.data)
+
+  ol.innerHTML = arrayResult(res.data);
+
+  console.log("3の壁")
+
+  $answerList.appendChild(ol);
+
+      console.log("4の壁")
+    });
+
+}, false);
+
+//回答リストをランダムな順番に並べ替え　※このarrayResultの塊を削除すると3の壁まで通る。4の壁に進められない。
+function arrayResult(array) {
     let result = ""
 
     for(const answer of array){
 
-      result = result + '<li> <class="radiobutton" name ="answer"   id = "' + answer.text + '</label> </li>' //ここが怪しい
+      result = result + '<li class="radiobutton" name ="answer">' + answer.text + '</li>'
+      result = result + '<li class="radiobutton" name ="answer">選んだのは</li>'
+if(answer.select_user_name ){
+    for(const name of answer.select_user_name){
+        result = result + '<li class="radiobutton" name ="answer">' + name + '</li>'
+    
+}
+}else{
+    result = result + '<li class="radiobutton" name ="answer">いませんでした</li>'
+
+}
 
       // count++
     };
@@ -146,24 +177,3 @@ result_happyou2.innerHTML = answer_select
     // result = result + '</ol>';
     return result;
   };
-
-let $resultList = document.getElementById('resultList');
-
-console.log("1の壁")
-
-  var ol = document.createElement('ol');
-
-  console.log("2の壁")
-
-  ol.innerHTML = arrayResult(res.data.selections);
-
-  console.log("3の壁")
-
-  $resultList.appendChild(ol);
-
-      console.log("4の壁")
-    });
-
-}, false);
-
-
