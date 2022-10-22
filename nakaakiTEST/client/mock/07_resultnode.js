@@ -138,7 +138,7 @@ let $answerList = document.getElementById('answerList');
 
 console.log("1の壁")
 
-  var ol = document.createElement('ol');
+  var ol = document.createElement('ul');
 
   console.log(res.data)
 
@@ -159,7 +159,7 @@ function arrayResult(array) {
 
     for(const answer of array){
 
-      result = result + '<li class="radiobutton" name ="answer">' + answer.text + '</li>'
+      result = result + '<li class="radiobutton listtext" name ="answer">' + answer.text + '</li>'
       result = result + '<li class="radiobutton" name ="answer">選んだのは</li>'
 if(answer.select_user_name ){
     for(const name of answer.select_user_name){
@@ -177,3 +177,47 @@ if(answer.select_user_name ){
     // result = result + '</ol>';
     return result;
   };
+
+
+
+/* 「つづける」ボタンを押して次の質問を出す */
+let choiceDecideBtn = document.getElementById("end");
+choiceDecideBtn.addEventListener('click', function() {
+
+  const user_id = Cookies.get('user_id');
+  const game_id = Cookies.get('game_id');
+
+  axios.post(API_URL + RESULT_NODE.postResult,{game_id:game_id, user_id:user_id})
+      .then((res) => {
+        /*　次画面に遷移　*/
+        //ルーム待機画面への移動処理を作る
+         location = hosting_URL + '/mock/04_room.html';
+      });
+
+  });
+
+
+
+
+
+
+
+
+
+
+/*
+        画面上の「ルームを解散する」ボタンを押下時にアラートを出し、本当に解散するかを問う。
+    */
+  let roomDismiss = document.getElementById('room_dismiss_btn');
+
+  roomDismiss.addEventListener('click', (event) => {
+   let result = window.confirm("本当にルームを解散しますか？");
+   
+   if( result ) {
+       console.log('OKがクリックされました。画面遷移します。');
+       window.location.href = "01_top.html";
+   }
+   else {
+       console.log('キャンセルがクリックされました。この画面に留まります。');
+   }
+  });

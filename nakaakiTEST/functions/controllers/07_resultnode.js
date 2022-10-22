@@ -31,3 +31,35 @@ selections.push({
 
 response.send(selections)
     };
+
+exports.postResult = async function (request, response) {  
+/* 出題済みクイズ番号を追記 */
+
+    //1.game collectionをgame_idで検索し,roomidを取得
+    let game = fireStore.collection(MODEL.GAME.TABLE_NAME).doc(request.body.game_id)
+    let snapShot = await game.get()
+/* 出題済みクイズ番号を用意 */
+   let doneQuizId = snapShot.get("done_quiz_id");
+   let quizId = snapShot.get("quiz_id");
+   quizId = quizId.replace("quiz/", "");
+   doneQuizId.push(Number(quizId))
+/* 次のクイズ番号を選定 */
+let min = 1 ;
+let max = 5 ;
+
+var arr = [];
+for(var i = min; i <= max; ++i) {
+    if(doneQuizId.indexOf(i) === -1) arr.push(i);
+}
+
+var nextQuizId = "quiz/"+arr[Math.floor( Math.random() * arr.length )];
+/* ゲームのクイズ番号を更新 */
+  const userRef = fireStore.collection('game').doc(request.body.game_id)
+  await userRef.update({
+    done_quiz_id: doneQuizId,
+    quiz_id: nextQuizId
+   
+  })
+
+        response.send()
+            };

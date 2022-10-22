@@ -49,5 +49,6 @@ app.post("/sendSelection", choicenode.sendSelection);　//入力した回答をD
 
 // 07_resultnode
 app.get("/getResult/:game_id", resultnode.getResult); //全員の回答入力内容を取得
+app.post("/postResult", resultnode.postResult);　//クイズをリセットしてルーム待機画面へ戻る。
 
 exports.app = functions.https.onRequest(app);

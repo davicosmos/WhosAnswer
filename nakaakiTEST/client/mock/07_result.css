@@ -130,3 +130,15 @@ body {
 
 /*リンクボタンのアンダーバーを消す*/
 a { text-decoration: none; }
+
+/*表示結果から箇条書きドット消す*/
+ul {
+    list-style: none;
+  }
+
+
+.listtext{
+    background-color: #e3f3d7;
+    padding: 10px 20px;
+    border-radius: 100px;
+}
