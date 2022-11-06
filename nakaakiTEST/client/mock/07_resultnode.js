@@ -200,24 +200,16 @@ choiceDecideBtn.addEventListener('click', function() {
 
 
 
+/* 「やめる」ボタンを押してルームを離脱する */
+let quitBtn = document.getElementById("quitBtn");
+quitBtn.addEventListener('click', function() {
 
+  const user_id = Cookies.get('user_id');
 
+  axios.post(API_URL + RESULT_NODE.postQuit,{user_id:user_id})
+      .then((res) => {
+        /*　トップ画面に遷移　*/
+         location = hosting_URL + '/mock/01_top.html';
+      });
 
-
-
-/*
-        画面上の「ルームを解散する」ボタンを押下時にアラートを出し、本当に解散するかを問う。
-    */
-  let roomDismiss = document.getElementById('room_dismiss_btn');
-
-  roomDismiss.addEventListener('click', (event) => {
-   let result = window.confirm("本当にルームを解散しますか？");
-   
-   if( result ) {
-       console.log('OKがクリックされました。画面遷移します。');
-       window.location.href = "01_top.html";
-   }
-   else {
-       console.log('キャンセルがクリックされました。この画面に留まります。');
-   }
   });

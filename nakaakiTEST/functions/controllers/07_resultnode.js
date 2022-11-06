@@ -63,3 +63,11 @@ var nextQuizId = "quiz/"+arr[Math.floor( Math.random() * arr.length )];
 
         response.send()
             };
+
+exports.postQuit = async function (request, response) {  
+    /*active_userを削除*/
+    let user = await fireStore.collection(MODEL.ACTIVE_USER.TABLE_NAME).doc(request.body.user_id).get()
+    user.ref.delete()
+    response.send()
+};
+
