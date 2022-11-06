@@ -37,15 +37,29 @@ exports.getGame = async function (request, response) {
     const querySnapshot2 = await fireStore.collection('game')
     .where('room_id', '==', 'room/'  + request.params.room_id)
     .get()
-    console.log("あるはずのgameの本取得" + querySnapshot2.size)
-    console.log("あるはずのgameの本取得" + querySnapshot2.empty)
+
 
     //gameに紐づけられたクイズのテキストを取得する
     let quizID_kakou = querySnapshot2.docs[0].get("quiz_id");
     let ret = quizID_kakou.replace("quiz/", "");
     const querySnapshot3 = await fireStore.collection('quiz').doc(ret).get()
+    /* 選択肢が作成されていたら削除する */
+    let gameID =querySnapshot2.docs[0].id;
 
+    /* ゲームIDで選択肢IDを取得 */
+    const selectionQuerySnapshot4 = await fireStore.collection('selection')
+    .where('game_id', '==', 'game/'  + gameID)
+    .get()
+    if(selectionQuerySnapshot4.size > 0){
 
+    /*選択肢IDで選択肢を削除*/
+    selectionQuerySnapshot4.forEach((selection) => {
+    selection.ref.delete()
+        })
+
+    }
+
+  
     let resData = { game: querySnapshot2.docs.map(doc => doc.id), quiz: querySnapshot3.data() };
 
     console.log("レスポンス" + resData);
