@@ -29,16 +29,32 @@ console.log(resData);
       response.send(resData);
  
 
-  //データをとりに行く
-  // fireStore.collection(MODEL.ROOM.TABLE_NAME).doc(request.params.room_id).get().then((snapShot) => {
-
-  //   //データを整理整頓
-  //     let result = null;
-  //     if (snapShot) {
-  //       result = snapShot.get("name");
-  //     };
-      
-  //     //データを返す。レスポンスする。
-  //     response.send(result);
-  //   });
   };
+
+  exports.postDeleteRoom = async function (request, response) { 
+
+
+    /*room_idでゲームを取得*/
+    const querySnapshot = await fireStore.collection('game')
+    .where('room_id', '==', 'room/'  + request.params.room_id)
+    .get()
+
+    /*game_idで選択肢を削除*/
+    var deleteGameId = []
+    querySnapshot.forEach((postDoc) => {
+    deleteGameId.push(postDoc.id)
+    })
+
+  
+    /*room_idでアクティブユーザーを削除*/
+
+    /*room_idでゲームを削除*/
+
+    /*room_idでルームを削除*/
+
+
+
+    response.send()
+    
+
+}

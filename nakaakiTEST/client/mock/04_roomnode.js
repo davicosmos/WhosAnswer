@@ -5,8 +5,18 @@
   /* 解散ボタン */
   let roomDismiss = document.getElementById('dismiss_btn');
   roomDismiss.addEventListener('click', function() {
-    alert("部屋は粉々になった。"); 
-    console.log(roomDismiss);
+    var res = confirm("部屋を解散しますか？本当ですか？まじ？"); 
+    if(res){
+
+  //画面を跨いでroom_idを取得する。画面2からとってくる。
+  const room_id = Cookies.get('room_id');
+      // 回答内容を送信
+      axios.post(API_URL + ROOM_NODE.postDeleteRoom,{room_id:room_id })
+      .then((res) => {
+        /*　トップ画面に遷移　*/
+        location = hosting_URL + '/mock/01_top.html';
+      });
+    }
     });
 
   /* はじめるボタン */
