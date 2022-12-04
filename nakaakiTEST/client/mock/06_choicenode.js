@@ -157,7 +157,7 @@ for (let i = 0; i < len; i++){
     }
 }
 
-  alert("あなたが選択した回答はこちらです。" + checkValue);
+
   /*　SelectionIDをAPIで送信　*/
   // 回答内容を送信
   // クッキーからユーザーIDと部屋IDを取得

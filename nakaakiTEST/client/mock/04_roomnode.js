@@ -134,13 +134,3 @@ let n = 0;
 
 window.addEventListener('pageshow', load , false);
 
-
-//はじめるボタンを押下し、05の画面へ遷移する　※とりあえずHTML側で遷移は十分かもなのでコメントアウト
-
-// let $enter = document.getElementById('roomEnter_btn');
-// $enter.addEventListener('click', function() {
- 
-// //ルーム待機画面への移動処理を作る
-// location = hosting_URL + '/mock/05_question.html';
-
-// });

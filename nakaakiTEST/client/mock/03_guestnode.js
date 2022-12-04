@@ -23,69 +23,6 @@ let tottekitaGuestUserName = document.getElementById('guestUserName');
 
 let roomEnterBtn = document.getElementById('roomEnter');
 
-// roomEnterBtn.addEventListener('click', function() {
-// alert("ゲスト名を取得しました。あなたが設定した名前はこちらです。" + tottekitaGuestUserName.value);
-// console.log(tottekitaGuestUserName.value);
-// });
-
-
-/* 部屋に入る */
-    /* ホストから聞いたルームIDを検索ボタンに入力する */ 
-    //入力されたルームIDを取得する　見直し要。！！　ルームをDBから探せなくてはならない。
-    // let roomKensakuBtn = document.getElementById('roomNumberCheck2');　//検索ボタン
-
-    // roomKensakuBtn.addEventListener('click', function() {
-
-    // let tottekitaRoomID = document.getElementById('roomNumberCheck1');　//　入力フィールド
-
-    // alert("あんたが探していた部屋はこれだろ" + tottekitaRoomID.value); //入力フィールドから取得した部屋番号を表示
-
-    // //入力されたルームIDをもとに、DBアクセスし、ホスト名を取得
-    // // let dataTest = fakeRoomData();
-    // // console.log(fakeRoomData);
-    // // let  tottekitaHostName = dataTest.hostName;
-    // let dataTest = fakeUserData();
-   
-    //  //この下のコードに、  element.roomId === tottekitaRoomID.value &&
-    // let tottekitaHostName = dataTest.find(element =>  element.role === 1);
-   
-
-    // //ホスト名をもとにhtmlの「お友達がホスト」を書き換え
-    // document.getElementById('roomNumberCheck4').innerHTML = tottekitaHostName.userName + "がホストのルーム";
-
-    // });
-
-
-
-
-/* ここから下は、練習なので削除可能。　！！ */
-//おためし（イベントオンクリック）
-// let btn = document.getElementById('roomNumberCheck2');
- 
-//     btn.addEventListener('click', function() {
-//       // GET通信
-// axios.get(apiUrl+'/timestamp')
-
-// // thenで成功した場合の処理をかける
-// .then(response => {
-//     console.log('status:', response.status); // 200
-//     console.log('body:', response.data);     // response body.
-
-// // catchでエラー時の挙動を定義する
-// }).catch(err => {
-//     console.log('err:', err);
-// });
-//     });
-
-
-//おためし2
-// // let room_name = document.getElementById('roomNumberCheck4');
-//     room_name.addEventListener('click', function() {
-//         room_name.innerHTML='もりらルームでなくルナティスルームです。';
-//       });
-
-/* ここから下が中村作成　！！ */
-
 /* 検索ボタンの検索処理のイベント */
 let search_button = document.getElementById('roomNumberCheck2');
 search_button.addEventListener('click', function() {
@@ -100,7 +37,6 @@ search_button.addEventListener('click', function() {
             room_disp.innerHTML = room_msg;
         });
 });
-
 
 /* このルームに入るの処理 */
 roomEnterBtn.addEventListener('click', function() {
@@ -123,7 +59,3 @@ roomEnterBtn.addEventListener('click', function() {
 
         });
 });
-
-
-      
-//export {tottekitaRoomID};

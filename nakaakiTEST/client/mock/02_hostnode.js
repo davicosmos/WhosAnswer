@@ -17,9 +17,6 @@ roomCreateComplete.addEventListener('click', function() {
     axios.post(API_URL + HOST_NODE.addRoom,{owner_name: tottekitaRoomName.value})
         .then((res) => {
             if (res.data) {
-                console.log(res.data);
-                alert("ルーム作成完了!!☆彡");
-
                 //クッキーにroom_idを保存。
                 let str = res.data.room_id;
                 let ret =str.replace("room/","");
