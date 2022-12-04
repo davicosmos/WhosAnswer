@@ -23,7 +23,7 @@ exports.getGame = async function (request, response) {
         const userRef = fireStore.collection('game').doc()
 
         let min = 1 ;
-        let max = 5 ;
+        let max = 68 ;
 
         let a = Math.floor( Math.random() * (max + 1 - min) ) + min ;
 

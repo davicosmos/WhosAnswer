@@ -45,7 +45,7 @@ exports.postResult = async function (request, response) {
    doneQuizId.push(Number(quizId))
 /* 次のクイズ番号を選定 */
 let min = 1 ;
-let max = 5 ;
+let max = 68 ;
 
 var arr = [];
 for(var i = min; i <= max; ++i) {
