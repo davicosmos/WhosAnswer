@@ -36,24 +36,44 @@ console.log(resData);
 
     /*room_idでゲームを取得*/
     const querySnapshot = await fireStore.collection('game')
-    .where('room_id', '==', 'room/'  + request.params.room_id)
+    .where('room_id', '==', 'room/'  + request.body.room_id)
     .get()
 
     /*game_idで選択肢を削除*/
     var deleteGameId = []
     querySnapshot.forEach((postDoc) => {
-    deleteGameId.push(postDoc.id)
-    })
 
-  
+    deleteGameId.push('game/' + postDoc.id)
+    })
+    if(deleteGameId.length){
+      const game_id_delete = await fireStore.collection('selection')
+      .where('game_id', 'in', deleteGameId)
+      .get()
+      game_id_delete.forEach(async(postDoc) => {
+        await postDoc.ref.delete()
+        })
+    }
     /*room_idでアクティブユーザーを削除*/
+    const querySnapshot3 = await fireStore.collection('active_user')
+    .where('room_id', '==', 'room/'  + request.body.room_id)
+    .get()
+
+    querySnapshot3.forEach(async(postDoc) => {
+      await postDoc.ref.delete()
+      })
 
     /*room_idでゲームを削除*/
+    const querySnapshot4 = await fireStore.collection('game')
+    .where('room_id', '==', 'room/'  + request.body.room_id)
+    .get()
+
+    querySnapshot4.forEach(async(postDoc) => {
+      await postDoc.ref.delete()
+      })
 
     /*room_idでルームを削除*/
-
-
-
+    const userRef = fireStore.collection('room').doc(request.body.room_id)
+    await userRef.delete()
     response.send()
     
 
