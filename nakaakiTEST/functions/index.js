@@ -37,6 +37,7 @@ app.post("/enter_room", guestnode.enterRoom);
 // 04_roomnode
 app.get("/room_info/:room_id", roomnode.getRoomInfo);
 app.post("/postDeleteRoom", roomnode.postDeleteRoom);
+app.post("/deleteMember", roomnode.deleteMember);
 
 // 05_questionnode
 app.get("/getGame/:room_id", questionnode.getGame); //一人目ならgameレコードを作成しそれいがいであればgameのレコードを取得するので何人めか確認

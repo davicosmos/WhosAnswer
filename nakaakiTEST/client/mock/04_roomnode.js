@@ -40,10 +40,6 @@ const load = function () {
     clicked = true
     axios.get(API_URL + ROOM_NODE.getRoomInfo + '/' + room_id).then((res) => {
       // DBからホスト名を取得
-      // const $doc = document;
-      // let $roomHostNameBase = $doc.getElementById('roomHostName');
-      // $roomHostNameBase.innerHTML = res.data  + "のルーム";        
-      // console.log(res.data);
       //ルームにいる人全員の名前を表示
       //DBの配列から要素を取得する　見直し要！！
       const memberLen = res.data.length;
@@ -85,6 +81,22 @@ const load = function () {
             let $roomHostNameBase = $doc.getElementById('roomHostName');
             $roomHostNameBase.innerHTML = res.data[i].user_name + "のルーム";
           } else {
+            img02.onclick = () => {
+              if (confirm(res.data[i].user_name + 'さんを削除しますか？')) {
+                if (!clicked) { 
+                clicked = true;
+                // 回答内容を送信
+                axios.post(API_URL + ROOM_NODE.deleteMember, {
+                  user_id: res.data[i].id
+                }).then((res) => {
+                  /*　リロード　*/
+                  window.location.reload()
+                }).finally(() => {
+                  clicked = false;
+                });
+                }
+              }              
+            }
             trElem.insertCell(1).appendChild(img02);
           }
         };

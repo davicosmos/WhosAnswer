@@ -18,17 +18,11 @@ exports.getRoomInfo = async function (request, response) {
   console.log(querySnapshot.empty)
   let resData = [];
   querySnapshot.forEach((postDoc) => {
-    resData.push(postDoc.data());
-    // resData.push(JSON.stringify(postDoc.data()));
-
-
-
-  // console.log(postDoc.id, ' => ', JSON.stringify(postDoc.data()))
-})
-console.log(resData);
-      response.send(resData);
- 
-
+    let member = postDoc.data();
+    member['id'] = postDoc.id;
+    resData.push(member);
+  })
+  response.send(resData);
   };
 
   exports.postDeleteRoom = async function (request, response) { 
@@ -78,3 +72,9 @@ console.log(resData);
     
 
 }
+exports.deleteMember = async function (request, response) {
+  const userRef = fireStore.collection('active_user').doc(request.body.user_id);
+  await userRef.delete();
+  response.send(true);
+}
+
