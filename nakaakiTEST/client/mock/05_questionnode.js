@@ -1,3 +1,4 @@
+let clicked = false
 
 /* 出題画面 */
 
@@ -31,7 +32,6 @@ window.addEventListener('pageshow', function() {
 
     //クッキーからroom_idを取得
     const room_id = Cookies.get('room_id');
-
 
     axios.get(API_URL + QUESTION_NODE.getGame + '/' + room_id)
     .then((res) => {
@@ -103,15 +103,21 @@ answerInputCheckBtn.addEventListener('click', function() {
 
 
   // 回答内容を送信
-  axios.post(API_URL + QUESTION_NODE.postAnswer,{text: tottekitaAnswerInput.value, user_id:user_id , game_id:game_id })
-      .then((res) => {
-          if (res.data) {
-              console.log(res.data);
 
-              alert("あなたが入力した回答はこちらです!!☆彡");
+  if (!clicked) {
+    clicked = true
+    axios.post(API_URL + QUESTION_NODE.postAnswer,{text: tottekitaAnswerInput.value, user_id:user_id , game_id:game_id })
+    .then((res) => {
+        if (res.data) {
+            console.log(res.data);
 
-          }
-      });
+        }
+    }).finally(() => {
+      clicked = false;
+    });;;
+        
+  }
+
 });
 
 //全員が回答を入力したかを確認
@@ -121,19 +127,26 @@ tsudukeruBtn.addEventListener('click', function() {
 
  const game_id = Cookies.get('game_id');
 
- axios.get(API_URL + QUESTION_NODE.getTsudukeruBtn + '/' + game_id)
- .then((res) => {
+ if (!clicked) {
+    clicked = true
+    axios.get(API_URL + QUESTION_NODE.getTsudukeruBtn + '/' + game_id)
+    .then((res) => {
+   
+       if(res.data){
+           //ルーム待機画面への移動処理を作る
+           location = hosting_URL + '/mock/06_choice.html';
+   
+       }else{
+           alert("全員の回答が出揃うまで待ちたまえよ!!☆彡");
+       }
+   
+   console.log(res.data)
+    }).finally(() => {
+        clicked = false;
+      });;;;
+ }
 
-    if(res.data){
-        //ルーム待機画面への移動処理を作る
-        location = hosting_URL + '/mock/06_choice.html';
 
-    }else{
-        alert("全員の回答が出揃うまで待ちたまえよ!!☆彡");
-    }
-
-console.log(res.data)
- });
 
 
 

@@ -124,7 +124,7 @@ console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
   })
 
   }
-
+  response.send(true);
   }
 
 
