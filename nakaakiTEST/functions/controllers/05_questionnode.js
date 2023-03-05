@@ -30,16 +30,47 @@ exports.getGame = async function (request, response) {
         await userRef.set({
           room_id: 'room/'+ request.params.room_id,
           quiz_id: 'quiz/' + a,
-          done_quiz_id:[]
+          done_quiz_id:[],
+          need_refresh:false
         });
     };
     //ゲームがあるはずなので、取得する
-    const querySnapshot2 = await fireStore.collection('game')
+    let querySnapshot2 = await fireStore.collection('game')
     .where('room_id', '==', 'room/'  + request.params.room_id)
     .get()
+    /* クイズIDのリフレッシュがいる場合はリフレッシュする */
+    if(querySnapshot2.docs[0].get("need_refresh")){
+          //1.game collectionをgame_idで検索し,roomidを取得
+    let game = fireStore.collection(MODEL.GAME.TABLE_NAME).doc(querySnapshot2.docs[0].id)
+    let snapShot = await game.get()
+/* 出題済みクイズ番号を用意 */
+   let doneQuizId = snapShot.get("done_quiz_id");
+   let quizId = snapShot.get("quiz_id");
+   quizId = quizId.replace("quiz/", "");
+   doneQuizId.push(Number(quizId))
+/* 次のクイズ番号を選定 */
+let min = 1 ;
+let max = 68 ;
 
+var arr = [];
+for(var i = min; i <= max; ++i) {
+    if(doneQuizId.indexOf(i) === -1) arr.push(i);
+}
 
+var nextQuizId = "quiz/"+arr[Math.floor( Math.random() * arr.length )];
+/* ゲームのクイズ番号を更新 */
+  const userRef = fireStore.collection('game').doc(querySnapshot2.docs[0].id)
+  await userRef.update({
+    done_quiz_id: doneQuizId,
+    quiz_id: nextQuizId,
+    need_refresh:false
+  })
+
+    }
     //gameに紐づけられたクイズのテキストを取得する
+    querySnapshot2 = await fireStore.collection('game')
+    .where('room_id', '==', 'room/'  + request.params.room_id)
+    .get()
     let quizID_kakou = querySnapshot2.docs[0].get("quiz_id");
     let ret = quizID_kakou.replace("quiz/", "");
     const querySnapshot3 = await fireStore.collection('quiz').doc(ret).get()
@@ -165,7 +196,11 @@ console.log(getGame2)
 
   if(answerCount >= userCount){
     //selectionをgame_idで検索し、ランダムで1つのidを取得する。
- 
+    const userRef = fireStore.collection('game').doc(request.params.game_id)
+  await userRef.update({
+  
+    need_refresh:true
+  })
     response.send(true);
 
   }else{
