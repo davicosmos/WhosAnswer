@@ -129,26 +129,25 @@ tsudukeruBtn.addEventListener('click', function() {
 
  if (!clicked) {
     clicked = true
-    axios.get(API_URL + QUESTION_NODE.getTsudukeruBtn + '/' + game_id)
-    .then((res) => {
-   
-       if(res.data){
-           //ルーム待機画面への移動処理を作る
-           location = hosting_URL + '/mock/06_choice.html';
-   
-       }else{
-           alert("全員の回答が出揃うまで待ちたまえよ!!☆彡");
-       }
-   
-   console.log(res.data)
-    }).finally(() => {
-        clicked = false;
-      });;;;
+    checkAPI(game_id)
  }
 
-
-
-
-
-
 });
+
+const checkAPI = function(game_id){
+  axios.get(API_URL + QUESTION_NODE.getTsudukeruBtn + '/' + game_id)
+  .then((res) => {
+ 
+     if(res.data){
+         //ルーム待機画面への移動処理を作る
+         location = hosting_URL + '/mock/06_choice.html';
+ 
+     }else{
+      checkAPI(game_id);
+     }
+ 
+ console.log(res.data)
+  }).finally(() => {
+      clicked = false;
+    });;;;
+}
