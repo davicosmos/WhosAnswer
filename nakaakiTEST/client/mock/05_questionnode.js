@@ -128,26 +128,19 @@ tsudukeruBtn.addEventListener('click', function() {
  const game_id = Cookies.get('game_id');
 
  if (!clicked) {
-    clicked = true
-    checkAPI(game_id)
+    clicked = true;
+    setInterval(() => {
+      checkAPI(game_id);
+    }, 2000);   
  }
 
 });
 
 const checkAPI = function(game_id){
   axios.get(API_URL + QUESTION_NODE.getTsudukeruBtn + '/' + game_id)
-  .then((res) => {
- 
+  .then((res) => { 
      if(res.data){
-         //ルーム待機画面への移動処理を作る
-         location = hosting_URL + '/mock/06_choice.html';
- 
-     }else{
-      checkAPI(game_id);
+      location = hosting_URL + '/mock/06_choice.html';
      }
- 
- console.log(res.data)
-  }).finally(() => {
-      clicked = false;
-    });;;;
+    })
 }
