@@ -109,7 +109,8 @@ const choiceDB = [{
   // const $doc = document;
   // let $resultList = $doc.getElementById('resultList');
   // $resultList.innerHTML =  resultArray(choiceDB);
-  window.addEventListener('pageshow', function () {
+
+   function load() {
     /* gameIDでSelectionを取得 */
     const game_id = Cookies.get('game_id');
     if (!clicked) {
@@ -133,13 +134,25 @@ const choiceDB = [{
         console.log(res.data)
         ol.innerHTML = arrayResult(res.data);
         console.log("3の壁")
+        while ($answerList.firstChild) {
+          $answerList.removeChild($answerList.firstChild);
+        }
         $answerList.appendChild(ol);
         console.log("4の壁")
       }).finally(() => {
         clicked = false;
-      });;;
+      });
     }
+  }
+
+  window.addEventListener('pageshow', function(){
+    load();
+    setInterval(() => {
+      load();
+    }, 8000);
+  
   }, false);
+
   //回答リストをランダムな順番に並べ替え　※このarrayResultの塊を削除すると3の壁まで通る。4の壁に進められない。
   function arrayResult(array) {
     let result = ""

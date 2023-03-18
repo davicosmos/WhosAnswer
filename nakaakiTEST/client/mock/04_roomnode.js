@@ -110,4 +110,10 @@ const load = function () {
     });;;
   }
 };
-window.addEventListener('pageshow', load, false);
+window.addEventListener('pageshow', function(){
+  load();
+  setInterval(() => {
+    load();
+  }, 8000);
+
+}, false);
