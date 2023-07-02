@@ -15,8 +15,6 @@ exports.getGame = async function (request, response) {
     const querySnapshot = await fireStore.collection('game')
     .where('room_id', '==', 'room/'  + request.params.room_id)
     .get()
-    console.log("確認要のgame取得" + querySnapshot.size)
-    console.log("確認要のgame取得" + querySnapshot.empty)
 
     //gameが作成されていない(自分が一番乗りだった)場合はgameを作成する
     if(querySnapshot.size <= 0){
@@ -90,34 +88,20 @@ var nextQuizId = "quiz/"+arr[Math.floor( Math.random() * arr.length )];
 
     }
 
-    let quiz_text = querySnapshot3.data().text
-//テストここから
-const roomUsers = await fireStore.collection('active_user')
-.where('room_id', '==', querySnapshot2.docs[0].get("room_id"))
-  .get()
-const userIndex = Math.floor(Math.random() * (roomUsers.docs.length + 1))-1;
-const user = roomUsers.docs[userIndex]
-
-console.log(roomUsers)
-console.log(userIndex)
-console.log(user)
-
-//テストここまで
-
+  let quiz_text = querySnapshot3.get('text')
+  
     if (quiz_text.includes('RANDOM_NAME')) {
       // roomのUserを取得
       const roomUsers = await fireStore.collection('active_user')
       .where('room_id', '==', querySnapshot2.docs[0].get("room_id"))
         .get()
-      const userIndex = Math.floor(Math.random() * (roomUsers.docs.length + 1))-1;
+      const userIndex = Math.floor(Math.random() * (roomUsers.docs.length));
       const user = roomUsers.docs[userIndex]
       quiz_text =  quiz_text.replace("RANDOM_NAME", user.get('user_name'))
      }
   
-    let resData = { game: querySnapshot2.docs.map(doc => doc.id), quiz: quiz_text };
+  let resData = { game: querySnapshot2.docs.map(doc => doc.id), quiz: quiz_text };
   
-
-    console.log("レスポンス" + resData);
     response.send(resData);
    
     };
@@ -138,7 +122,6 @@ console.log(user)
 //1.game collectionをgame_idで検索し,roomidを取得　※いままで作ってきたソースをもとに、これらをコツコツ作っていく。
 let game = fireStore.collection(MODEL.GAME.TABLE_NAME).doc(request.body.game_id)
 let snapShot = await game.get()
-console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
 
    let roomId = snapShot.get("room_id");
 
@@ -158,10 +141,6 @@ console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
 
   let answerCount = querySnapshot4.docs.length;
 
-
-  console.log(answerCount+ "ですわよ")
-  console.log(userCount+ "でやんす")
-
   if(answerCount >= userCount){
     //selectionをgame_idで検索し、ランダムで1つのidを取得する。
     let min = 0 ;
@@ -170,7 +149,6 @@ console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
     let b = Math.floor( Math.random() * (max + 1 - min) ) + min ;
 
     let selection_id = querySnapshot4.docs[b].id;
-    console.log(selection_id)
     
     //idを指定し、is_answerをtrueにする。
     const is_ansewrChange = fireStore.collection('selection').doc(selection_id)
@@ -194,7 +172,6 @@ console.log(request.body.game_id+"リクエストボディゲームIDなのだ")
     //1.game collectionをgame_idで検索し,roomidを取得
 let game = fireStore.collection(MODEL.GAME.TABLE_NAME).doc(getGame2)
 let snapShot = await game.get()
-console.log(getGame2)
 
    let roomId = snapShot.get("room_id");
 
@@ -213,10 +190,6 @@ console.log(getGame2)
    .get()
 
   let answerCount = querySnapshot4.docs.length;
-
-
-  console.log(answerCount+ "ですわよ")
-  console.log(userCount+ "でやんす")
 
   if(answerCount >= userCount){
     //selectionをgame_idで検索し、ランダムで1つのidを取得する。
