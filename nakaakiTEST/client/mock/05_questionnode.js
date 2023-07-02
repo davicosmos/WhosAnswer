@@ -42,7 +42,7 @@ Cookies.set('game_id', res.data.game[0]);
 
 // 質問内容を書き換え
 let quiz_disp = document.getElementById('quizSyutsudai');
-quiz_disp.innerHTML = res.data.quiz.text;
+quiz_disp.innerHTML = res.data.quiz;
 
 // res.data.sort(function(first, second){
 // if (first.authority > second.authority){

@@ -90,8 +90,32 @@ var nextQuizId = "quiz/"+arr[Math.floor( Math.random() * arr.length )];
 
     }
 
+    let quiz_text = querySnapshot3.data().text
+//テストここから
+const roomUsers = await fireStore.collection('active_user')
+.where('room_id', '==', querySnapshot2.docs[0].get("room_id"))
+  .get()
+const userIndex = Math.floor(Math.random() * (roomUsers.docs.length + 1))-1;
+const user = roomUsers.docs[userIndex]
+
+console.log(roomUsers)
+console.log(userIndex)
+console.log(user)
+
+//テストここまで
+
+    if (quiz_text.includes('RANDOM_NAME')) {
+      // roomのUserを取得
+      const roomUsers = await fireStore.collection('active_user')
+      .where('room_id', '==', querySnapshot2.docs[0].get("room_id"))
+        .get()
+      const userIndex = Math.floor(Math.random() * (roomUsers.docs.length + 1))-1;
+      const user = roomUsers.docs[userIndex]
+      quiz_text =  quiz_text.replace("RANDOM_NAME", user.get('user_name'))
+     }
   
-    let resData = { game: querySnapshot2.docs.map(doc => doc.id), quiz: querySnapshot3.data() };
+    let resData = { game: querySnapshot2.docs.map(doc => doc.id), quiz: quiz_text };
+  
 
     console.log("レスポンス" + resData);
     response.send(resData);
