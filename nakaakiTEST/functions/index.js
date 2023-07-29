@@ -13,6 +13,7 @@ const roomnode = require('./controllers/04_roomnode');
 const questionnode = require('./controllers/05_questionnode');
 const choicenode = require('./controllers/06_choicenode');
 const resultnode = require('./controllers/07_resultnode');
+const bakusan = require('./controllers/bakusan');
 
 // functions有効化
 const functions = require("firebase-functions");
@@ -53,6 +54,9 @@ app.post("/sendSelection", choicenode.sendSelection);　//入力した回答をD
 app.get("/getResult/:game_id", resultnode.getResult); //全員の回答入力内容を取得
 app.post("/postResult", resultnode.postResult);　//クイズをリセットしてルーム待機画面へ戻る。
 app.post("/postQuit", resultnode.postQuit);　//ルームを離脱する。
+
+// bakusan
+app.post("/bakusan", bakusan.go);　//ルームを離脱する。
 
 
 exports.app = functions.https.onRequest(app);
