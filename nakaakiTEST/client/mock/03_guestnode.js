@@ -35,6 +35,10 @@ search_button.addEventListener('click', function () {
 });
 /* このルームに入るの処理 */
 roomEnterBtn.addEventListener('click', function () {
+  if (!tottekitaGuestUserName.value) {
+    alert('こらこら、ユーザー名が空欄ですよっと')
+    return
+  } 
   if (!clicked) {
     clicked = true
     let roomIdKensakuTottekuru = document.getElementById('roomNumberCheck1').value;

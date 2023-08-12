@@ -26,7 +26,19 @@ roomDismiss.addEventListener('click', function () {
 let roomEnter = document.getElementById('roomEnter_btn');
 roomEnter.addEventListener('click', function () {
   alert("次のステージへ");
-  console.log(roomEnter);
+});
+/* 退出ボタン */
+let goOutButton = document.getElementById('goOut01');
+goOutButton.addEventListener('click', function () {
+  // 削除API叩く
+  axios
+    .post(API_URL + ROOM_NODE.deleteMember, {
+      user_id: Cookies.get('user_id')
+    })
+    .finally(() => {
+      // TOPに遷移
+      location = hosting_URL + '/mock/01_top.html';
+    });
 });
 //ここからが基本的な画面の表示ロジックです。
 const load = function () {

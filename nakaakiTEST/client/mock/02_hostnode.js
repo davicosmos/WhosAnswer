@@ -10,6 +10,10 @@ let roomCreateComplete = document.getElementById('htmlManage-call');
 // });
 let clicked = false
 roomCreateComplete.addEventListener('click', function () {
+  if (!tottekitaRoomName.value) {
+    alert('こらこら、ユーザー名が空欄ですよっと')
+    return
+  }
   if (!clicked) {
     clicked = true
     // ルームIDでルーム名を作成
